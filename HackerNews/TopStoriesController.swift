@@ -10,6 +10,7 @@ import UIKit
 
 class TopStoriesController: UITableViewController{
     var data = [Int]()
+    let opQueue = NSOperationQueue()
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,11 @@ class TopStoriesController: UITableViewController{
         return data.count
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("eachStory" , forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("eachStory" , forIndexPath: indexPath) as StoryCell
+        var storyUrl = "https://hacker-news.firebaseio.com/v0/item/\(data[indexPath.row])"
+        
+        cell.operationQ = opQueue
+        cell.url = storyUrl
         
         cell.textLabel?.text = "\(data[indexPath.row])"
         return cell
