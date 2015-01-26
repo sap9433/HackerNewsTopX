@@ -65,20 +65,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="10" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="pH0-jH-tbj">
-                                <rect key="frame" x="14" y="118" width="572" height="31"/>
+                                <rect key="frame" x="14" y="235" width="572" height="31"/>
                                 <connections>
                                     <action selector="minScoreChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="zcB-ga-jRA"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Score Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Luq-pg-ORp">
+                                <rect key="frame" x="16" y="95" width="576" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Luq-pg-ORp" secondAttribute="trailing" id="66c-Xh-HBn"/>
                             <constraint firstItem="pH0-jH-tbj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RPi-UC-Sec"/>
                             <constraint firstItem="pH0-jH-tbj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cxP-xy-ntR"/>
+                            <constraint firstItem="Luq-pg-ORp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="yKT-b5-8Rw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="minScore" destination="pH0-jH-tbj" id="ZX0-pZ-qcF"/>
+                        <outlet property="minScoreLabel" destination="Luq-pg-ORp" id="p87-J8-3JN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

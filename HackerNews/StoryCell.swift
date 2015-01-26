@@ -19,8 +19,12 @@ class StoryCell: UITableViewCell {
             // Read data and react to changes
             myRootRef.observeEventType(.Value, withBlock: {
                 snapshot in
-                self.textLabel?.text = (snapshot.value as NSDictionary)["title"] as String
-                println((snapshot.value as NSDictionary)["title"] as String)
+                var storyDetails :  NSDictionary = snapshot.value as NSDictionary
+                self.textLabel?.text = storyDetails["title"] as String?
+                if(storyDetails["score"] != nil){
+                    self.detailTextLabel?.text = "yahoo" //storyDetails["score"]? as String?
+                }
+                
             })
         }
     }

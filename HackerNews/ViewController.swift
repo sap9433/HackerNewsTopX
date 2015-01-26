@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var minScore: UISlider!
+    @IBOutlet weak var minScoreLabel: UILabel!
+    
+    
     var userDefault = NSUserDefaults.standardUserDefaults()
     let minscoreKey = "minScore"
     
@@ -31,7 +34,7 @@ class ViewController: UIViewController {
     
     @IBAction func minScoreChanged(sender: UISlider) {
         userDefault.setObject(minScore.value, forKey: minscoreKey)
-        println(minScore.value)
+        minScoreLabel.text = "See and get update of stories with score > \(minScore.value)"
     }
 }
 
