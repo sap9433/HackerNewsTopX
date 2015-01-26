@@ -9,7 +9,7 @@
 import UIKit
 
 class StoryCell: UITableViewCell {
-
+    
     var operationQ : NSOperationQueue?
     
     var url : String? {
@@ -19,11 +19,12 @@ class StoryCell: UITableViewCell {
             // Read data and react to changes
             myRootRef.observeEventType(.Value, withBlock: {
                 snapshot in
-                println(snapshot.value)
+                self.textLabel?.text = (snapshot.value as NSDictionary)["title"] as String
+                println((snapshot.value as NSDictionary)["title"] as String)
             })
         }
     }
     
     
-
+    
 }
