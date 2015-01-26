@@ -11,22 +11,26 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var minScore: UISlider!
-    let userDefault = NSUserDefaults.standardUserDefaults()
+    var userDefault = NSUserDefaults.standardUserDefaults()
+    let minscoreKey = "minScore"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-          }
-
+        
+        var storeScore: Float? = userDefault.objectForKey(minscoreKey) as Float?
+        minScore.value = storeScore!
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-   
-
+    
+    
+    
     @IBAction func minScoreChanged(sender: UISlider) {
-        self.userDefault.setObject(minScore.value, forKey: "minScore")
+        userDefault.setObject(minScore.value, forKey: minscoreKey)
         println(minScore.value)
     }
 }
