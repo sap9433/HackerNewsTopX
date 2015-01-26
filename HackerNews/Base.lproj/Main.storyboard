@@ -62,12 +62,23 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="10" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="pH0-jH-tbj">
+                                <rect key="frame" x="14" y="118" width="572" height="31"/>
+                                <connections>
+                                    <action selector="minScoreChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="zcB-ga-jRA"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="minScore" destination="pH0-jH-tbj" id="ZX0-pZ-qcF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2257" y="-213"/>
+            <point key="canvasLocation" x="2104" y="-213"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qd2-HW-EZg">
