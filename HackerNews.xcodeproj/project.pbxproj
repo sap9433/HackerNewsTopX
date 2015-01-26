@@ -19,6 +19,7 @@
 		6A9DDD341A75391200BAD199 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9DDD331A75391200BAD199 /* CFNetwork.framework */; };
 		6A9DDD361A75395900BAD199 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9DDD351A75395900BAD199 /* libicucore.dylib */; };
 		6A9DDD381A75396B00BAD199 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9DDD371A75396B00BAD199 /* SystemConfiguration.framework */; };
+		6A9DDD3A1A7571D800BAD199 /* TopStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9DDD391A7571D800BAD199 /* TopStoriesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6A9DDD331A75391200BAD199 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		6A9DDD351A75395900BAD199 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		6A9DDD371A75396B00BAD199 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6A9DDD391A7571D800BAD199 /* TopStoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopStoriesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				6A9DDD0C1A75362200BAD199 /* AppDelegate.swift */,
 				6A9DDD0E1A75362200BAD199 /* ViewController.swift */,
 				6A9DDD101A75362200BAD199 /* Main.storyboard */,
+				6A9DDD391A7571D800BAD199 /* TopStoriesController.swift */,
 				6A9DDD131A75362200BAD199 /* Images.xcassets */,
 				6A9DDD151A75362200BAD199 /* LaunchScreen.xib */,
 				6A9DDD0A1A75362200BAD199 /* Supporting Files */,
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A9DDD2E1A75363F00BAD199 /* temp.m in Sources */,
+				6A9DDD3A1A7571D800BAD199 /* TopStoriesController.swift in Sources */,
 				6A9DDD0F1A75362200BAD199 /* ViewController.swift in Sources */,
 				6A9DDD0D1A75362200BAD199 /* AppDelegate.swift in Sources */,
 			);

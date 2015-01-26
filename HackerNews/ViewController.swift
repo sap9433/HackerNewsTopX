@@ -13,14 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var myRootRef = Firebase(url:"https://hacker-news.firebaseio.com/v0/topstories")
-        
-        // Read data and react to changes
-        myRootRef.observeEventType(.Value, withBlock: {
-            snapshot in
-            println("\(snapshot.key) -> \(snapshot.value)")
-        })
-    }
+          }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
