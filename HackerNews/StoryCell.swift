@@ -21,8 +21,9 @@ class StoryCell: UITableViewCell {
                 snapshot in
                 var storyDetails :  NSDictionary = snapshot.value as NSDictionary
                 self.textLabel?.text = storyDetails["title"] as String?
-                if(storyDetails["score"] != nil){
-                    self.detailTextLabel?.text = "yahoo" //storyDetails["score"]? as String?
+                
+                if let score = storyDetails["score"] as Int?{
+                    self.detailTextLabel?.text = "\(score)"
                 }
                 
             })
