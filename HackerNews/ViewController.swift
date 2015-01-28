@@ -14,13 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var minScoreLabel: UILabel!
     
     
-    var userDefault = NSUserDefaults.standardUserDefaults()
-    let minscoreKey = "minScore"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         var storeScore: Float? = userDefault.objectForKey(minscoreKey) as Float?
         minScore.value = storeScore!
     }

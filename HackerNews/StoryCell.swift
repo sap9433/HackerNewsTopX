@@ -12,24 +12,27 @@ class StoryCell: UITableViewCell {
     
     var operationQ : NSOperationQueue?
     
-    var url : String? {
+    var storyId : Int? {
         didSet{
-            var myRootRef = Firebase(url:self.url?)
-            
+            var myRootRef = Firebase(url:"\(individualStoryUrl)\(self.storyId!)")
             // Read data and react to changes
             myRootRef.observeEventType(.Value, withBlock: {
                 snapshot in
-                var storyDetails :  NSDictionary = snapshot.value as NSDictionary
-                self.textLabel?.text = storyDetails["title"] as String?
+                var storyDetails :  NSDictionary? = snapshot.value as NSDictionary?
+                self.textLabel?.text = storyDetails?["title"] as String?
+                let score = storyDetails?["score"] as Int?
                 
-                if let score = storyDetails["score"] as Int?{
-                    self.detailTextLabel?.text = "\(score)"
+                if score != nil{
+                    if(score! < 100){
+                        //Dont know how but returning from here just removes that row from table view
+                       return
+                    }else{
+                        self.detailTextLabel?.text = "\(score!)"
+                    }
                 }
                 
             })
         }
     }
-    
-    
     
 }

@@ -8,13 +8,18 @@
 
 import UIKit
 
+let minscoreKey = "minScore"
+let topStoriesIdskey = "topStoriesIdskey"
+let individualStoryUrl = "https://hacker-news.firebaseio.com/v0/item/"
+let userDefault = NSUserDefaults.standardUserDefaults()
+
 class TopStoriesController: UITableViewController{
     
     var data = [Int]()
     let opQueue = NSOperationQueue()
     let cellIdentifier = "eachStory"
     let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
-    let individualStoryUrl = "https://hacker-news.firebaseio.com/v0/item/"
+    
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +29,9 @@ class TopStoriesController: UITableViewController{
         // Read data and react to changes
         myRootRef.observeEventType(.Value, withBlock: {
             snapshot in
-            self.data = (snapshot.value as NSArray) as [Int]
+            var topStoriesIds = (snapshot.value as NSArray) as [Int]
+            userDefault.setObject(topStoriesIds, forKey: topStoriesIdskey)
+            self.data = topStoriesIds
             self.tableView.reloadData()
         })
         
@@ -40,12 +47,12 @@ class TopStoriesController: UITableViewController{
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier( cellIdentifier, forIndexPath: indexPath) as StoryCell
-        var storyUrl = "\(individualStoryUrl)\(data[indexPath.row])"
+        var storyId = data[indexPath.row] as Int
         
         cell.operationQ = opQueue
-        cell.url = storyUrl
+        cell.storyId = storyId
         
-        cell.textLabel?.text = "\(data[indexPath.row])"
+        cell.textLabel?.text = "\(storyId)"
         return cell
     }
 }
