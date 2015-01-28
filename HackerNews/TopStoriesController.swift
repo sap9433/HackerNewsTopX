@@ -12,11 +12,14 @@ class TopStoriesController: UITableViewController{
     
     var data = [Int]()
     let opQueue = NSOperationQueue()
+    let cellIdentifier = "eachStory"
+    let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
+    let individualStoryUrl = "https://hacker-news.firebaseio.com/v0/item/"
  
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var myRootRef = Firebase(url:"https://hacker-news.firebaseio.com/v0/topstories")
+        var myRootRef = Firebase(url: allStoriesLink)
         
         // Read data and react to changes
         myRootRef.observeEventType(.Value, withBlock: {
@@ -36,15 +39,13 @@ class TopStoriesController: UITableViewController{
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("eachStory" , forIndexPath: indexPath) as StoryCell
-        var storyUrl = "https://hacker-news.firebaseio.com/v0/item/\(data[indexPath.row])"
+        let cell = tableView.dequeueReusableCellWithIdentifier( cellIdentifier, forIndexPath: indexPath) as StoryCell
+        var storyUrl = "\(individualStoryUrl)\(data[indexPath.row])"
         
         cell.operationQ = opQueue
         cell.url = storyUrl
         
         cell.textLabel?.text = "\(data[indexPath.row])"
         return cell
-        
-        
     }
 }
