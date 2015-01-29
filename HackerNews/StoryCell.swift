@@ -11,6 +11,7 @@ import UIKit
 class StoryCell: UITableViewCell {
     
     var operationQ : NSOperationQueue?
+    var storeScore: Int? = userDefault.objectForKey(minscoreKey) as Int?
     
     var storyId : Int? {
         didSet{
@@ -23,7 +24,7 @@ class StoryCell: UITableViewCell {
                 let score = storyDetails?["score"] as Int?
                 
                 if score != nil{
-                    if(score! < 100){
+                    if(score! < self.storeScore!){
                         //Dont know how but returning from here just removes that row from table view
                        return
                     }else{
