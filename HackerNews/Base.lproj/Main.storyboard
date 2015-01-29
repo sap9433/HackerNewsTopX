@@ -47,10 +47,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="LOh-zg-4eO" kind="show" identifier="webViewSegue" id="PZ3-C9-GX5"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLd-Gn-IPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1406" y="-218"/>
+            <point key="canvasLocation" x="1392" y="-308"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -112,5 +115,51 @@
             </objects>
             <point key="canvasLocation" x="594" y="-218"/>
         </scene>
+        <!--Webview-->
+        <scene sceneID="p52-vT-R5H">
+            <objects>
+                <viewController id="LOh-zg-4eO" customClass="Webview" customModule="HackerNews" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ofn-1Z-SSB"/>
+                        <viewControllerLayoutGuide type="bottom" id="WUS-4E-blG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="58f-yg-6xf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DQA-0H-rCi">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="770"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ddH-60-zM8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hvR-na-0DM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1392" y="490"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TzE-BJ-DBI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RXt-Rv-dID" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WjX-PI-Mb9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LOh-zg-4eO" kind="relationship" relationship="rootViewController" id="EZ9-0E-L1O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCZ-dT-YIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="565" y="517"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PZ3-C9-GX5"/>
+    </inferredMetricsTieBreakers>
 </document>

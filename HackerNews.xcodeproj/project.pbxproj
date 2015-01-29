@@ -21,6 +21,7 @@
 		6A9DDD381A75396B00BAD199 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9DDD371A75396B00BAD199 /* SystemConfiguration.framework */; };
 		6A9DDD3A1A7571D800BAD199 /* TopStoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9DDD391A7571D800BAD199 /* TopStoriesController.swift */; };
 		6A9DDD3E1A76773000BAD199 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9DDD3D1A76773000BAD199 /* StoryCell.swift */; };
+		6A9DDD401A7A8A6100BAD199 /* Webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9DDD3F1A7A8A6100BAD199 /* Webview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		6A9DDD371A75396B00BAD199 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6A9DDD391A7571D800BAD199 /* TopStoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopStoriesController.swift; sourceTree = "<group>"; };
 		6A9DDD3D1A76773000BAD199 /* StoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
+		6A9DDD3F1A7A8A6100BAD199 /* Webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				6A9DDD0E1A75362200BAD199 /* ViewController.swift */,
 				6A9DDD101A75362200BAD199 /* Main.storyboard */,
 				6A9DDD391A7571D800BAD199 /* TopStoriesController.swift */,
+				6A9DDD3F1A7A8A6100BAD199 /* Webview.swift */,
 				6A9DDD131A75362200BAD199 /* Images.xcassets */,
 				6A9DDD151A75362200BAD199 /* LaunchScreen.xib */,
 				6A9DDD0A1A75362200BAD199 /* Supporting Files */,
@@ -246,6 +249,7 @@
 				6A9DDD2E1A75363F00BAD199 /* temp.m in Sources */,
 				6A9DDD3A1A7571D800BAD199 /* TopStoriesController.swift in Sources */,
 				6A9DDD0F1A75362200BAD199 /* ViewController.swift in Sources */,
+				6A9DDD401A7A8A6100BAD199 /* Webview.swift in Sources */,
 				6A9DDD0D1A75362200BAD199 /* AppDelegate.swift in Sources */,
 				6A9DDD3E1A76773000BAD199 /* StoryCell.swift in Sources */,
 			);

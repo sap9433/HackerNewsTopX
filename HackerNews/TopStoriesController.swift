@@ -9,7 +9,10 @@
 import UIKit
 
 let minscoreKey = "minScore"
+let cellIdentifier = "eachStory"
+let webviewIdentifier = "webview"
 let topStoriesIdskey = "topStoriesIdskey"
+let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
 let individualStoryUrl = "https://hacker-news.firebaseio.com/v0/item/"
 let userDefault = NSUserDefaults.standardUserDefaults()
 
@@ -17,10 +20,8 @@ class TopStoriesController: UITableViewController{
     
     var data = [Int]()
     let opQueue = NSOperationQueue()
-    let cellIdentifier = "eachStory"
-    let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
-    
- 
+    let webViewSegue = "webViewSegue"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +35,6 @@ class TopStoriesController: UITableViewController{
             self.data = topStoriesIds
             self.tableView.reloadData()
         })
-        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -54,5 +54,20 @@ class TopStoriesController: UITableViewController{
         
         cell.textLabel?.text = "\(storyId)"
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // This method will be empty for following overridden method to work we need this empty method.
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        
+        var moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Original Story", handler:{action, indexpath in
+            self.performSegueWithIdentifier(self.webViewSegue, sender: self)
+           
+        });
+        moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+        
+        return [moreRowAction];
     }
 }
