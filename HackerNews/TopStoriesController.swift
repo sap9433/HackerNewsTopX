@@ -10,7 +10,6 @@ import UIKit
 
 let minscoreKey = "minScore"
 let cellIdentifier = "eachStory"
-let webviewIdentifier = "webview"
 let topStoriesIdskey = "topStoriesIdskey"
 let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
 let individualStoryUrl = "https://hacker-news.firebaseio.com/v0/item/"
@@ -56,10 +55,11 @@ class TopStoriesController: UITableViewController{
         return cell
     }
     
+    // This method will be empty for following overridden method to work we need this empty method.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        // This method will be empty for following overridden method to work we need this empty method.
+        
     }
-    
+    //this is the overridden method that handels the table row action
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         
         var moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Original Story", handler:{action, indexpath in
@@ -69,5 +69,13 @@ class TopStoriesController: UITableViewController{
         moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
         
         return [moreRowAction];
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == webViewSegue) {
+            var webview = segue.destinationViewController as Webview;
+            webview.url = "https://news.ycombinator.com/"
+            
+        }
     }
 }

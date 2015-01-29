@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eRc-vS-zOu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="eRc-vS-zOu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--TopStories-->
@@ -10,7 +9,7 @@
             <objects>
                 <tableViewController title="TopStories" id="8u2-Ot-Fkg" customClass="TopStoriesController" customModule="HackerNews" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="127" sectionHeaderHeight="22" sectionFooterHeight="22" id="XH4-sw-5Xy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -43,51 +42,44 @@
                     <navigationItem key="navigationItem" id="Raj-Uf-Hhw">
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="cSH-5N-hpS">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="F7E-rB-7Q6"/>
+                                <segue destination="BYZ-38-t0r" kind="push" id="F7E-rB-7Q6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="LOh-zg-4eO" kind="show" identifier="webViewSegue" id="PZ3-C9-GX5"/>
+                        <segue destination="LOh-zg-4eO" kind="push" identifier="webViewSegue" id="PZ3-C9-GX5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLd-Gn-IPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1392" y="-308"/>
+            <point key="canvasLocation" x="742.39999999999998" y="-291.57333333333332"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="10" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="pH0-jH-tbj">
-                                <rect key="frame" x="14" y="235" width="572" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="10" maxValue="500" id="pH0-jH-tbj">
+                                <rect key="frame" x="14" y="235" width="292" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="minScoreChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="zcB-ga-jRA"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Score Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Luq-pg-ORp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="Luq-pg-ORp">
                                 <rect key="frame" x="16" y="95" width="576" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Luq-pg-ORp" secondAttribute="trailing" id="66c-Xh-HBn"/>
-                            <constraint firstItem="pH0-jH-tbj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="RPi-UC-Sec"/>
-                            <constraint firstItem="pH0-jH-tbj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cxP-xy-ntR"/>
-                            <constraint firstItem="Luq-pg-ORp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="yKT-b5-8Rw"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="NsT-q3-Sko"/>
                     <connections>
                         <outlet property="minScore" destination="pH0-jH-tbj" id="ZX0-pZ-qcF"/>
                         <outlet property="minScoreLabel" destination="Luq-pg-ORp" id="p87-J8-3JN"/>
@@ -95,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2104" y="-213"/>
+            <point key="canvasLocation" x="1122.1333333333332" y="-201.63999999999999"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qd2-HW-EZg">
@@ -113,32 +105,32 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cg6-fH-q5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594" y="-218"/>
+            <point key="canvasLocation" x="316.80000000000001" y="-206.37333333333333"/>
         </scene>
         <!--Webview-->
         <scene sceneID="p52-vT-R5H">
             <objects>
                 <viewController id="LOh-zg-4eO" customClass="Webview" customModule="HackerNews" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ofn-1Z-SSB"/>
-                        <viewControllerLayoutGuide type="bottom" id="WUS-4E-blG"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="58f-yg-6xf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DQA-0H-rCi">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="770"/>
+                            <webView contentMode="scaleToFill" id="DQA-0H-rCi">
+                                <rect key="frame" x="-66" y="0.0" width="600" height="770"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ddH-60-zM8"/>
+                    <connections>
+                        <outlet property="webpage" destination="DQA-0H-rCi" id="6qP-Ka-iut"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvR-na-0DM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1392" y="490"/>
+            <point key="canvasLocation" x="742.39999999999998" y="463.86666666666667"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TzE-BJ-DBI">
@@ -156,10 +148,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCZ-dT-YIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565" y="517"/>
+            <point key="canvasLocation" x="301.33333333333331" y="489.42666666666668"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="PZ3-C9-GX5"/>
+        <segue reference="EZ9-0E-L1O"/>
     </inferredMetricsTieBreakers>
 </document>
