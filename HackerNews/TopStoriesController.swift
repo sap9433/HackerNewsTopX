@@ -8,32 +8,24 @@
 
 import UIKit
 
-let minscoreKey = "minScore"
-let cellIdentifier = "eachStory"
-let topStoriesIdskey = "topStoriesIdskey"
-let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
-let individualStoryUrl = "https://hacker-news.firebaseio.com/v0/item/"
-let userDefault = NSUserDefaults.standardUserDefaults()
-
 class TopStoriesController: UITableViewController{
-    
-    var data = [Int]()
-    let opQueue = NSOperationQueue()
+    let individualStoryUrl = "https://hacker-news.firebaseio.com/v0/item/"
+    let cellIdentifier = "eachStory"
+    let topStoriesIdskey = "topStoriesIdskey"
     let webViewSegue = "webViewSegue"
+    let userDefault = NSUserDefaults.standardUserDefaults()
+    
+    var showStories = [Int: [String:Any]]()
+    var minSetScore = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var myRootRef = Firebase(url: allStoriesLink)
-        
         // Read data and react to changes
-        myRootRef.observeEventType(.Value, withBlock: {
-            snapshot in
-            var topStoriesIds = (snapshot.value as NSArray) as [Int]
-            userDefault.setObject(topStoriesIds, forKey: topStoriesIdskey)
-            self.data = topStoriesIds
-            self.tableView.reloadData()
-        })
+        let storedScore: Int? = userDefault.objectForKey(minscoreKey) as Int?
+        if storedScore != nil{
+           self.minSetScore = storedScore!
+        }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processTopStory:", name:"topStoryChanged", object: nil)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -41,17 +33,13 @@ class TopStoriesController: UITableViewController{
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return showStories.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier( cellIdentifier, forIndexPath: indexPath) as StoryCell
-        var storyId = data[indexPath.row] as Int
-        
-        cell.operationQ = opQueue
-        cell.storyId = storyId
-        
-        cell.textLabel?.text = "\(storyId)"
+        var storyId = showStories[indexPath.row]
+        cell.cellDetails = ["title" : " yo yo \(storyId)"]//showStories[storyId]
         return cell
     }
     
@@ -76,6 +64,33 @@ class TopStoriesController: UITableViewController{
             var webview = segue.destinationViewController as Webview;
             webview.url = "https://news.ycombinator.com/"
             
+        }
+    }
+    
+    func processTopStory(notification: NSNotification){
+        for eachStory in topStoriesIds{
+            if let storyExists = showStories[eachStory]{
+                continue
+            }else{
+                showStories[eachStory] = {
+                    var fetchEachStory = Firebase(url:"\(self.individualStoryUrl)\(eachStory)")
+                    var fetchedDetails = [String: Any]?()
+                    // Read data and react to changes
+                    fetchEachStory.observeEventType(.Value, withBlock: {
+                        snapshot in
+                        var storyDetails :  NSDictionary? = snapshot.value as NSDictionary?
+                        let score = storyDetails?["score"] as Int?
+                        
+                        if true || score? > self.minSetScore{
+//                            fetchedDetails =  storyDetails! as [String: Any]
+                            fetchedDetails = ["yo": ["\(eachStory)": score]]
+                        }else{
+                            fetchedDetails =  nil
+                        }
+                    })
+                    return ["yo": ["\(eachStory)": "score"]]//fetchedDetails
+                }()
+            }
         }
     }
 }

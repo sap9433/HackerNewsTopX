@@ -8,15 +8,26 @@
 
 import UIKit
 
+var topStoriesIds = [Int]()
+let minscoreKey = "minScore"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
     var window: UIWindow?
     var minScore: Int?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        var myRootRef = Firebase(url: self.allStoriesLink)
+        myRootRef.observeEventType(.Value, withBlock: {
+            snapshot in
+            topStoriesIds = (snapshot.value as NSArray) as [Int]
+            NSNotificationCenter.defaultCenter().postNotificationName("topStoryChanged", object: nil)
+        })
+
         return true
     }
 
@@ -41,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 
