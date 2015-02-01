@@ -84,7 +84,6 @@ class TopStoriesController: UITableViewController{
                 fetchEachStory.observeEventType(.Value, withBlock: {
                     snapshot in
                     if snapshot.exists(){
-                        println(snapshot)
                         let storyDetails = snapshot.value as NSDictionary?
                         let score = storyDetails!["score"] as Int?
                         var thisStory = eachStory

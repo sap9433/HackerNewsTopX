@@ -13,25 +13,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eachStory" textLabel="QYq-Vn-eHb" detailTextLabel="cCv-pZ-6uv" rowHeight="127" style="IBUITableViewCellStyleSubtitle" id="gP7-Er-CTe" customClass="StoryCell" customModule="HackerNews">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eachStory" rowHeight="127" id="gP7-Er-CTe" customClass="StoryCell" customModule="HackerNews">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gP7-Er-CTe" id="2Rc-D6-nvP">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QYq-Vn-eHb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ztw-gN-leD">
+                                            <rect key="frame" x="8" y="0.0" width="320" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.14726656293781956" green="0.18116715948504225" blue="0.79699337121212122" alpha="0.56000000000000005" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cCv-pZ-6uv">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="euX-K2-WHO">
+                                            <rect key="frame" x="8" y="34" width="304" height="59"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DVi-LL-a3F">
+                                            <rect key="frame" x="8" y="101" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.12351598256780748" green="0.62354008838383845" blue="0.13217750532802261" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Hx-Nu-y2z">
+                                            <rect key="frame" x="246" y="97" width="66" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.18859223504717013" green="0.46508888108123925" blue="0.91483191287878785" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="by" destination="5Hx-Nu-y2z" id="Pwa-QZ-uAf"/>
+                                    <outlet property="details" destination="euX-K2-WHO" id="nqT-qy-W0Z"/>
+                                    <outlet property="score" destination="DVi-LL-a3F" id="PJT-tQ-Hz4"/>
+                                    <outlet property="title" destination="ztw-gN-leD" id="kMD-J9-hEh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -39,7 +61,7 @@
                             <outlet property="delegate" destination="8u2-Ot-Fkg" id="rMC-Kc-ifX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Raj-Uf-Hhw">
+                    <navigationItem key="navigationItem" title="Top Stories" id="Raj-Uf-Hhw">
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="cSH-5N-hpS">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="push" id="F7E-rB-7Q6"/>
@@ -52,9 +74,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLd-Gn-IPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742.39999999999998" y="-291.57333333333332"/>
+            <point key="canvasLocation" x="742" y="-292"/>
         </scene>
-        <!--View Controller-->
+        <!--Filters-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HackerNews" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +101,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NsT-q3-Sko"/>
+                    <navigationItem key="navigationItem" title="Filters" id="NsT-q3-Sko"/>
                     <connections>
                         <outlet property="minScore" destination="pH0-jH-tbj" id="ZX0-pZ-qcF"/>
                         <outlet property="minScoreLabel" destination="Luq-pg-ORp" id="p87-J8-3JN"/>
@@ -89,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="1122.1333333333332" y="-201.63999999999999"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--nav1-->
         <scene sceneID="Qd2-HW-EZg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eRc-vS-zOu" sceneMemberID="viewController">
+                <navigationController title="nav1" automaticallyAdjustsScrollViewInsets="NO" id="eRc-vS-zOu" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mFc-Jh-eIl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -107,7 +129,7 @@
             </objects>
             <point key="canvasLocation" x="316.80000000000001" y="-206.37333333333333"/>
         </scene>
-        <!--Webview-->
+        <!--Deaild Story-->
         <scene sceneID="p52-vT-R5H">
             <objects>
                 <viewController id="LOh-zg-4eO" customClass="Webview" customModule="HackerNews" sceneMemberID="viewController">
@@ -123,7 +145,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ddH-60-zM8"/>
+                    <navigationItem key="navigationItem" title="Deaild Story" id="ddH-60-zM8">
+                        <barButtonItem key="backBarButtonItem" title="Top Stories" id="RrL-4U-d57"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="webpage" destination="DQA-0H-rCi" id="6qP-Ka-iut"/>
                     </connections>
@@ -132,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="742.39999999999998" y="463.86666666666667"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav 2 dont-->
         <scene sceneID="TzE-BJ-DBI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RXt-Rv-dID" sceneMemberID="viewController">
+                <navigationController title="Nav 2 dont" automaticallyAdjustsScrollViewInsets="NO" id="RXt-Rv-dID" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WjX-PI-Mb9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
