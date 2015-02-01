@@ -17,7 +17,6 @@ class StoryCell: UITableViewCell {
     var cellDetails: AnyObject?{
         didSet{
             var cellData = self.cellDetails as NSDictionary
-            println(cellData)
             self.title.text = cellData["title"] as? String
             self.details.text = cellData["text"] as? String
             var score = cellData["score"] as Int

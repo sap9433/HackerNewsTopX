@@ -8,8 +8,9 @@
 
 import UIKit
 
-class Webview: UIViewController {
+class Webview: UIViewController,UIWebViewDelegate {
     
+    @IBOutlet weak var pageLoading: UIActivityIndicatorView!
     @IBOutlet weak var webpage: UIWebView!
     var url : String?
     
@@ -25,6 +26,10 @@ class Webview: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+     func webViewDidFinishLoad(webView: UIWebView!) {
+        pageLoading.stopAnimating()
     }
 
 }

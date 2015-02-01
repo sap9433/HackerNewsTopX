@@ -94,6 +94,7 @@ class TopStoriesController: UITableViewController{
                         var thisStory = eachStory
                         if score? > self.minSetScore{
                             self.showStories[thisStory] = storyDetails
+                            self.tableView.reloadData()
                         }
                     }
                     

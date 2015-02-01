@@ -138,10 +138,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" id="DQA-0H-rCi">
-                                <rect key="frame" x="-66" y="0.0" width="600" height="770"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="770"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="LOh-zg-4eO" id="cdF-7s-8jx"/>
+                                </connections>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" id="O8N-Fa-W6N">
+                                <rect key="frame" x="145" y="274" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.16463426788581459" green="1" blue="0.17135881970554245" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -149,6 +157,7 @@
                         <barButtonItem key="backBarButtonItem" title="Top Stories" id="RrL-4U-d57"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="pageLoading" destination="O8N-Fa-W6N" id="4gp-8m-okW"/>
                         <outlet property="webpage" destination="DQA-0H-rCi" id="6qP-Ka-iut"/>
                     </connections>
                 </viewController>
