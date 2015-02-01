@@ -17,9 +17,6 @@ class TopStoriesController: UITableViewController{
     var showStories:[Int: NSDictionary]
     var rowInFocus:Int = 0
     let userDefault = NSUserDefaults.standardUserDefaults()
-        
-    var minSetScore = 1
-    
     
     @IBOutlet weak var tableLoading: UIActivityIndicatorView!
     required init(coder aDecoder: NSCoder) {
@@ -29,11 +26,6 @@ class TopStoriesController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Read data and react to changes
-        let storedScore: Int? = userDefault.objectForKey(minscoreKey) as Int?
-        if storedScore != nil{
-           self.minSetScore = storedScore!
-        }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "processTopStory:", name:"topStoryChanged", object: nil)
     }
     
@@ -82,8 +74,11 @@ class TopStoriesController: UITableViewController{
     }
     
     func processTopStory(notification: NSNotification){
+        // Read data and react to changes
+      
         for eachStory in topStoriesIds{
-            if let storyExists: AnyObject = showStories[eachStory]{
+            //let storyExists: AnyObject = showStories[eachStory]
+            if false{
                 continue
             }else{
                 var fetchEachStory = Firebase(url:"\(self.individualStoryUrl)\(eachStory)")
@@ -91,13 +86,21 @@ class TopStoriesController: UITableViewController{
                 fetchEachStory.observeEventType(.Value, withBlock: {
                     snapshot in
                     if snapshot.exists(){
+                        var minscore:Int
+                        if let storedScore = self.userDefault.objectForKey(minscoreKey) as Int?{
+                            minscore = storedScore
+                        }else{
+                            minscore = 0
+                        }
                         let storyDetails = snapshot.value as NSDictionary?
                         let score = storyDetails!["score"] as Int?
                         var thisStory = eachStory
-                        if score? > self.minSetScore{
+                        if score? > minscore{
                             self.showStories[thisStory] = storyDetails
                             self.tableLoading.stopAnimating()
                             self.tableView.reloadData()
+                        }else{
+                            self.showStories[thisStory] = nil
                         }
                     }
                     

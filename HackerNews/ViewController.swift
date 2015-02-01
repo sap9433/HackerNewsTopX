@@ -31,5 +31,10 @@ class ViewController: UIViewController {
         userDefault.setObject(minScore.value, forKey: minscoreKey)
         minScoreLabel.text = "See and get update of stories with score > \(minScore.value)"
     }
+        
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().postNotificationName("topStoryChanged", object: nil)
+    }
+    
 }
 
