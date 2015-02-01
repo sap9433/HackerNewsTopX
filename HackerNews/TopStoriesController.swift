@@ -15,6 +15,7 @@ class TopStoriesController: UITableViewController{
     let topStoriesIdskey = "topStoriesIdskey"
     let webViewSegue = "webViewSegue"
     var showStories:[Int: NSDictionary]
+    var rowInFocus:Int = 0
     let userDefault = NSUserDefaults.standardUserDefaults()
         
     var minSetScore = 1
@@ -58,6 +59,7 @@ class TopStoriesController: UITableViewController{
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         
         var moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Original Story", handler:{action, indexpath in
+            self.rowInFocus = indexPath.row
             self.performSegueWithIdentifier(self.webViewSegue, sender: self)
            
         });
@@ -66,10 +68,13 @@ class TopStoriesController: UITableViewController{
         return [moreRowAction];
     }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == webViewSegue) {
-            var webview = segue.destinationViewController as Webview;
-            webview.url = "https://news.ycombinator.com/"
+            var webview = segue.destinationViewController as Webview
+            var storyId = Array(showStories.keys)[rowInFocus] as Int
+            let focusUrl = (showStories[storyId] as NSDictionary!)["url"] as String
+            webview.url = focusUrl
             
         }
     }
