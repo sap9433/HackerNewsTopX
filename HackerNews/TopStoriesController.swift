@@ -57,7 +57,7 @@ class TopStoriesController: UITableViewController{
             self.performSegueWithIdentifier(self.webViewSegue, sender: self)
            
         });
-        moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+        moreRowAction.backgroundColor = UIColor.greenColor()
         
         return [moreRowAction];
     }
