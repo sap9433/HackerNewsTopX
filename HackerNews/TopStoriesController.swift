@@ -8,15 +8,21 @@
 
 import UIKit
 
+
 class TopStoriesController: UITableViewController{
     let individualStoryUrl = "https://hacker-news.firebaseio.com/v0/item/"
     let cellIdentifier = "eachStory"
     let topStoriesIdskey = "topStoriesIdskey"
     let webViewSegue = "webViewSegue"
+    var showStories:[Int: NSDictionary]
     let userDefault = NSUserDefaults.standardUserDefaults()
-    
-    var showStories = [Int: [String:Any]]()
+        
     var minSetScore = 1
+    
+    required init(coder aDecoder: NSCoder) {
+        self.showStories = [Int: NSDictionary]()
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +44,9 @@ class TopStoriesController: UITableViewController{
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier( cellIdentifier, forIndexPath: indexPath) as StoryCell
-        var storyId = showStories[indexPath.row]
-        cell.cellDetails = ["title" : " yo yo \(storyId)"]//showStories[storyId]
+        var storyId = Array(showStories.keys)[indexPath.row] as Int
+        cell.storyId = storyId
+        cell.cellDetails = showStories[storyId]
         return cell
     }
     
@@ -69,28 +76,26 @@ class TopStoriesController: UITableViewController{
     
     func processTopStory(notification: NSNotification){
         for eachStory in topStoriesIds{
-            if let storyExists = showStories[eachStory]{
+            if let storyExists: AnyObject = showStories[eachStory]{
                 continue
             }else{
-                showStories[eachStory] = {
-                    var fetchEachStory = Firebase(url:"\(self.individualStoryUrl)\(eachStory)")
-                    var fetchedDetails = [String: Any]?()
-                    // Read data and react to changes
-                    fetchEachStory.observeEventType(.Value, withBlock: {
-                        snapshot in
-                        var storyDetails :  NSDictionary? = snapshot.value as NSDictionary?
-                        let score = storyDetails?["score"] as Int?
-                        
-                        if true || score? > self.minSetScore{
-//                            fetchedDetails =  storyDetails! as [String: Any]
-                            fetchedDetails = ["yo": ["\(eachStory)": score]]
-                        }else{
-                            fetchedDetails =  nil
+                var fetchEachStory = Firebase(url:"\(self.individualStoryUrl)\(eachStory)")
+                // Read data and react to changes
+                fetchEachStory.observeEventType(.Value, withBlock: {
+                    snapshot in
+                    if snapshot.exists(){
+                        println(snapshot)
+                        let storyDetails = snapshot.value as NSDictionary?
+                        let score = storyDetails!["score"] as Int?
+                        var thisStory = eachStory
+                        if score? > self.minSetScore{
+                            self.showStories[thisStory] = storyDetails
                         }
-                    })
-                    return ["yo": ["\(eachStory)": "score"]]//fetchedDetails
-                }()
+                    }
+                    
+                })
             }
         }
     }
 }
+

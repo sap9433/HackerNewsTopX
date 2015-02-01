@@ -10,9 +10,10 @@ import UIKit
 
 class StoryCell: UITableViewCell {
     
-    var cellDetails: [String: Any]?{
+    var cellDetails: AnyObject?{
         didSet{
-            self.textLabel?.text = "yo \(self.storyId)" //self.cellDetails![self.storyId].title
+            var cellData = self.cellDetails as NSDictionary
+            self.textLabel?.text = cellData["title"] as? String //self.cellDetails![self.storyId].title
         }
     }
     

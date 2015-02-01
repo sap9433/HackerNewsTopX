@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/AppDelegate.swift"
-            timestampString = "444423801.790842"
+            timestampString = "444475935.000307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -116,43 +116,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/TopStoriesController.swift"
-            timestampString = "444423801.790842"
+            timestampString = "444479083.138448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "tableView(_:editActionsForRowAtIndexPath:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HackerNews.TopStoriesController.tableView (HackerNews.TopStoriesController)(ObjectiveC.UITableView, editActionsForRowAtIndexPath : ObjectiveC.NSIndexPath) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.AnyObject&gt;&gt;"
-                  moduleName = "HackerNews"
-                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
-                  timestampString = "444398640.162927"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "68">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "HackerNews.TopStoriesController.(tableView (HackerNews.TopStoriesController) -&gt; (ObjectiveC.UITableView, editActionsForRowAtIndexPath : ObjectiveC.NSIndexPath) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.AnyObject&gt;&gt;).(closure #1)"
-                  moduleName = "HackerNews"
-                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
-                  timestampString = "444398640.163229"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "23">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -162,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/TopStoriesController.swift"
-            timestampString = "444423801.790842"
+            timestampString = "444475935.000307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -178,7 +148,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/AppDelegate.swift"
-            timestampString = "444423801.790842"
+            timestampString = "444475935.000307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -194,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/TopStoriesController.swift"
-            timestampString = "444423801.790842"
+            timestampString = "444475935.000307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -210,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/TopStoriesController.swift"
-            timestampString = "444423801.790842"
+            timestampString = "444479083.138448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "processTopStory(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -226,11 +196,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/TopStoriesController.swift"
-            timestampString = "444423801.790842"
+            timestampString = "444479083.138448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "TopStoriesController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444479083.138448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "processTopStory(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -242,43 +228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/TopStoriesController.swift"
-            timestampString = "444423801.790842"
+            timestampString = "444479083.138448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "processTopStory(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HackerNews/TopStoriesController.swift"
-            timestampString = "444423801.790842"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "processTopStory(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HackerNews/TopStoriesController.swift"
-            timestampString = "444423801.790842"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "processTopStory(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -290,11 +244,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/StoryCell.swift"
-            timestampString = "444423829.536763"
+            timestampString = "444480849.539027"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "StoryCell"
             landmarkType = "3">
          </BreakpointContent>
@@ -306,13 +260,477 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/TopStoriesController.swift"
-            timestampString = "444424160.507369"
+            timestampString = "444475935.000307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "TopStoriesController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.showStories.getter : Swift.Dictionary&lt;Swift.Int, Swift.AnyObject&gt;"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444475067.60959"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.showStories.setter : Swift.Dictionary&lt;Swift.Int, Swift.AnyObject&gt;"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444475067.609869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.init (HackerNews.TopStoriesController.Type)(style : C.UITableViewStyle) -&gt; HackerNews.TopStoriesController"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444475067.610311"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "329">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.init (HackerNews.TopStoriesController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; HackerNews.TopStoriesController"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444475067.610537"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "422">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.init (HackerNews.TopStoriesController.Type)() -&gt; HackerNews.TopStoriesController"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444475067.610773"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "318">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.init (HackerNews.TopStoriesController.Type)(coder : ObjectiveC.NSCoder) -&gt; HackerNews.TopStoriesController"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444475067.611011"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "329">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444465966.864447"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444475935.000307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "TopStoriesController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.webViewSegue.getter : Swift.String"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444466324.481166"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.init (HackerNews.TopStoriesController.Type)(style : C.UITableViewStyle) -&gt; HackerNews.TopStoriesController"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444466324.481428"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "217">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.init (HackerNews.TopStoriesController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; HackerNews.TopStoriesController"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444466324.481603"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "289">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.init (HackerNews.TopStoriesController.Type)() -&gt; HackerNews.TopStoriesController"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444466324.481796"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "206">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.init (HackerNews.TopStoriesController.Type)(coder : ObjectiveC.NSCoder) -&gt; HackerNews.TopStoriesController"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444466324.482006"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "217">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444479083.138448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "processTopStory(_:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444479083.138448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "processTopStory(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444479083.138448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.prepareForSegue (HackerNews.TopStoriesController)(ObjectiveC.UIStoryboardSegue, sender : Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;) -&gt; ()"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444475094.334793"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "178">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.prepareForSegue (HackerNews.TopStoriesController)(ObjectiveC.UIStoryboardSegue, sender : Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;) -&gt; ()"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444475094.335029"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "1225">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444475935.000307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "init(coder:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444475938.103583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "init(coder:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444479083.138448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "processTopStory(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444479083.138448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "processTopStory(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.processTopStory (HackerNews.TopStoriesController)(ObjectiveC.NSNotification) -&gt; ()"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444476149.278527"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "1341">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.TopStoriesController.(processTopStory (HackerNews.TopStoriesController) -&gt; (ObjectiveC.NSNotification) -&gt; ()).(closure #1)"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444476149.278742"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "reabstraction thunk helper from @callee_owned (@owned Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.FDataSnapshot&gt;) -&gt; (@unowned ()) to @callee_owned (@in Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.FDataSnapshot&gt;) -&gt; (@out ())"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444476149.279001"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "reabstraction thunk helper from @callee_owned (@in Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.FDataSnapshot&gt;) -&gt; (@out ()) to @callee_owned (@owned Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.FDataSnapshot&gt;) -&gt; (@unowned ())"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444476149.279254"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "reabstraction thunk helper from @callee_owned (@owned Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.FDataSnapshot&gt;) -&gt; (@unowned ()) to @callee_unowned @objc_block (@unowned Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.FDataSnapshot&gt;) -&gt; (@unowned ())"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/TopStoriesController.swift"
+                  timestampString = "444476149.279547"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/TopStoriesController.swift"
+            timestampString = "444479083.138448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "processTopStory(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HackerNews/StoryCell.swift"
+            timestampString = "444480445.768674"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "StoryCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HackerNews.StoryCell.__deallocating_deinit"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/StoryCell.swift"
+                  timestampString = "444480445.772699"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "@objc HackerNews.StoryCell.__ivar_destroyer"
+                  moduleName = "HackerNews"
+                  urlString = "file:///Users/saptarshichatterjee/Desktop/Old%20Projects/HackerNews/HackerNews/StoryCell.swift"
+                  timestampString = "444480445.772927"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
