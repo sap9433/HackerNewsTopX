@@ -8,12 +8,17 @@
         <scene sceneID="vG9-jj-0PI">
             <objects>
                 <tableViewController title="TopStories" id="8u2-Ot-Fkg" customClass="TopStoriesController" customModule="HackerNews" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="127" sectionHeaderHeight="22" sectionFooterHeight="22" id="XH4-sw-5Xy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="133" sectionHeaderHeight="22" sectionFooterHeight="22" id="XH4-sw-5Xy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="wet-iu-8xA">
+                            <rect key="frame" x="0.0" y="219" width="320" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" red="0.27293150013020329" green="0.42561197370996012" blue="0.78898358585858586" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eachStory" rowHeight="127" id="gP7-Er-CTe" customClass="StoryCell" customModule="HackerNews">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eachStory" rowHeight="133" id="gP7-Er-CTe" customClass="StoryCell" customModule="HackerNews">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gP7-Er-CTe" id="2Rc-D6-nvP">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -69,6 +74,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableLoading" destination="wet-iu-8xA" id="SGY-bG-hra"/>
                         <segue destination="LOh-zg-4eO" kind="push" identifier="webViewSegue" id="PZ3-C9-GX5"/>
                     </connections>
                 </tableViewController>
@@ -190,6 +196,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="EZ9-0E-L1O"/>
+        <segue reference="PZ3-C9-GX5"/>
     </inferredMetricsTieBreakers>
 </document>

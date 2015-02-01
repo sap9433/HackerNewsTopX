@@ -20,6 +20,8 @@ class TopStoriesController: UITableViewController{
         
     var minSetScore = 1
     
+    
+    @IBOutlet weak var tableLoading: UIActivityIndicatorView!
     required init(coder aDecoder: NSCoder) {
         self.showStories = [Int: NSDictionary]()
         super.init(coder: aDecoder)
@@ -94,6 +96,7 @@ class TopStoriesController: UITableViewController{
                         var thisStory = eachStory
                         if score? > self.minSetScore{
                             self.showStories[thisStory] = storyDetails
+                            self.tableLoading.stopAnimating()
                             self.tableView.reloadData()
                         }
                     }
