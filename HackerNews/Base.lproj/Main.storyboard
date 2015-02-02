@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eRc-vS-zOu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--TopStories-->
@@ -23,31 +24,54 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gP7-Er-CTe" id="2Rc-D6-nvP">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztw-gN-leD">
-                                            <rect key="frame" x="8" y="0.0" width="320" height="32"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztw-gN-leD">
+                                            <rect key="frame" x="8" y="0.0" width="589" height="53"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.14726656293781956" green="0.18116715948504225" blue="0.79699337121212122" alpha="0.56000000000000005" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euX-K2-WHO">
-                                            <rect key="frame" x="8" y="30" width="304" height="63"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euX-K2-WHO">
+                                            <rect key="frame" x="8" y="61" width="584" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="dVi-iG-sS4"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVi-LL-a3F">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVi-LL-a3F">
                                             <rect key="frame" x="8" y="101" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="r8P-Pk-xB7"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.12351598256780748" green="0.62354008838383845" blue="0.13217750532802261" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hx-Nu-y2z">
-                                            <rect key="frame" x="237" y="97" width="66" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hx-Nu-y2z">
+                                            <rect key="frame" x="539" y="106" width="34" height="12"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="34" id="FNH-9S-vO1"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.18859223504717013" green="0.46508888108123925" blue="0.91483191287878785" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="5Hx-Nu-y2z" secondAttribute="bottom" constant="6.5" id="2NM-W2-6cZ"/>
+                                        <constraint firstItem="5Hx-Nu-y2z" firstAttribute="top" secondItem="euX-K2-WHO" secondAttribute="bottom" constant="13" id="6iQ-Mi-w2Y"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="5Hx-Nu-y2z" secondAttribute="trailing" constant="19" id="HCG-i5-Q3E"/>
+                                        <constraint firstItem="euX-K2-WHO" firstAttribute="top" secondItem="ztw-gN-leD" secondAttribute="bottom" constant="8" symbolic="YES" id="HPY-bc-cRt"/>
+                                        <constraint firstItem="euX-K2-WHO" firstAttribute="leading" secondItem="2Rc-D6-nvP" secondAttribute="leadingMargin" id="LhN-Ye-YFX"/>
+                                        <constraint firstItem="euX-K2-WHO" firstAttribute="leading" secondItem="ztw-gN-leD" secondAttribute="leading" id="OKf-Ai-dhT"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ztw-gN-leD" secondAttribute="trailing" constant="-5" id="P9K-aD-qzb"/>
+                                        <constraint firstItem="euX-K2-WHO" firstAttribute="trailing" secondItem="2Rc-D6-nvP" secondAttribute="trailingMargin" id="RLK-Oa-3Yf"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="DVi-LL-a3F" secondAttribute="bottom" constant="2.5" id="TkQ-Z1-6iV"/>
+                                        <constraint firstItem="DVi-LL-a3F" firstAttribute="leading" secondItem="euX-K2-WHO" secondAttribute="leading" id="Xm8-Is-2po"/>
+                                        <constraint firstItem="DVi-LL-a3F" firstAttribute="top" secondItem="euX-K2-WHO" secondAttribute="bottom" constant="8" symbolic="YES" id="tIA-dv-G8m"/>
+                                        <constraint firstItem="ztw-gN-leD" firstAttribute="top" secondItem="2Rc-D6-nvP" secondAttribute="top" id="w9b-3s-mIU"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="by" destination="5Hx-Nu-y2z" id="Pwa-QZ-uAf"/>
@@ -76,7 +100,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLd-Gn-IPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1391.25" y="-308.45070422535207"/>
+            <point key="canvasLocation" x="1394" y="-309"/>
         </scene>
         <!--Filters-->
         <scene sceneID="tne-QT-ifu">
@@ -191,6 +215,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EZ9-0E-L1O"/>
+        <segue reference="PZ3-C9-GX5"/>
     </inferredMetricsTieBreakers>
 </document>
