@@ -27,7 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             topStoriesIds = (snapshot.value as NSArray) as [Int]
             NSNotificationCenter.defaultCenter().postNotificationName("topStoryChanged", object: nil)
         })
-
+        
+        // Notification ...
+        let notificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge
+        let notificationSetting = UIUserNotificationSettings(forTypes: notificationType, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSetting)
+        
         return true
     }
 

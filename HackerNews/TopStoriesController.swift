@@ -16,11 +16,15 @@ class TopStoriesController: UITableViewController{
     let webViewSegue = "webViewSegue"
     var showStories:[Int: NSDictionary]
     var rowInFocus:Int = 0
-    let userDefault = NSUserDefaults.standardUserDefaults()
+    let userDefault: NSUserDefaults
+    var pushNotification: UILocalNotification
     
     @IBOutlet weak var tableLoading: UIActivityIndicatorView!
+    
     required init(coder aDecoder: NSCoder) {
+        self.userDefault = NSUserDefaults.standardUserDefaults()
         self.showStories = [Int: NSDictionary]()
+        self.pushNotification = UILocalNotification()
         super.init(coder: aDecoder)
     }
 
@@ -98,15 +102,22 @@ class TopStoriesController: UITableViewController{
                         if score? > minscore{
                             self.showStories[thisStory] = storyDetails
                             self.tableLoading.stopAnimating()
-                            self.tableView.reloadData()
+                            self.sendNotification()
                         }else{
                             self.showStories[thisStory] = nil
                         }
+                        self.tableView.reloadData()
                     }
                     
                 })
             }
         }
+    }
+    
+    private func sendNotification(){
+        pushNotification.alertBody = "Yo Notification"
+        pushNotification.fireDate = nil
+        UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
     }
 }
 
