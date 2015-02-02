@@ -108,7 +108,7 @@ class TopStoriesController: UITableViewController{
                         if score? > minscore{
                             self.showStories[thisStory] = storyDetails
                             self.tableLoading.stopAnimating()
-                            self.sendNotification()
+                            self.sendNotification(storyDetails!["title"] as String)
                         }else{
                             self.showStories[thisStory] = nil
                         }
@@ -120,8 +120,8 @@ class TopStoriesController: UITableViewController{
         }
     }
     
-    private func sendNotification(){
-        pushNotification.alertBody = "Yo Notification"
+    private func sendNotification(notificationText: String){
+        pushNotification.alertBody = notificationText
         pushNotification.fireDate = nil
         UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
     }
