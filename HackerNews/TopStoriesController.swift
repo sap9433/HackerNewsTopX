@@ -81,21 +81,27 @@ class TopStoriesController: UITableViewController{
         // Read data and react to changes
       
         for eachStory in topStoriesIds{
-            //let storyExists: AnyObject = showStories[eachStory]
-            if false{
-                continue
+            
+            var minscore:Int
+            if let storedScore = self.userDefault.objectForKey(minscoreKey) as Int?{
+                minscore = storedScore
+            }else{
+                minscore = 0
+            }
+            
+            if let storyExists = self.showStories[eachStory]{
+                if(storyExists["score"] as Int > minscore){
+                    continue
+                }else{
+                    self.showStories[eachStory] = nil
+                    self.tableView.reloadData()
+                }
             }else{
                 var fetchEachStory = Firebase(url:"\(self.individualStoryUrl)\(eachStory)")
                 // Read data and react to changes
                 fetchEachStory.observeEventType(.Value, withBlock: {
                     snapshot in
                     if snapshot.exists(){
-                        var minscore:Int
-                        if let storedScore = self.userDefault.objectForKey(minscoreKey) as Int?{
-                            minscore = storedScore
-                        }else{
-                            minscore = 0
-                        }
                         let storyDetails = snapshot.value as NSDictionary?
                         let score = storyDetails!["score"] as Int?
                         var thisStory = eachStory
