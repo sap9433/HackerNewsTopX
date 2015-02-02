@@ -18,8 +18,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var storeScore: Float? = self.userDefault.objectForKey(minscoreKey) as Float?
-        minScore.value = storeScore!
+        if let storeScore = self.userDefault.objectForKey(minscoreKey) as Float?{
+            minScore.value = storeScore
+        }else{
+            minScore.value = 10
+        }
     }
     
     override func didReceiveMemoryWarning() {
