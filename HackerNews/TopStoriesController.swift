@@ -103,12 +103,13 @@ class TopStoriesController: UITableViewController{
                     snapshot in
                     if snapshot.exists(){
                         let storyDetails = snapshot.value as NSDictionary?
-                        let score = storyDetails!["score"] as Int?
+                        let storyScore = storyDetails!["score"] as Int?
                         var thisStory = eachStory
-                        if score? > minscore{
+                        if storyScore? > minscore{
                             self.showStories[thisStory] = storyDetails
                             self.tableLoading.stopAnimating()
-                            self.sendNotification(storyDetails!["title"] as String)
+                            var notifictionString = storyDetails!["title"] as String + "(\(storyScore!))"
+                            self.sendNotification(notifictionString)
                         }else{
                             self.showStories[thisStory] = nil
                         }
