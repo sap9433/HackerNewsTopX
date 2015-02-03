@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var minScore: UISlider!
+    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var minScoreLabel: UILabel!
     var userDefault:NSUserDefaults!
     var notificatioCenter:NSNotificationCenter!
@@ -25,10 +25,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         if let storeScore = self.userDefault.objectForKey(minscoreKey) as Float?{
-            minScore.value = storeScore
+            slider.value = storeScore
         }else{
-            minScore.value = 10
+            slider.value = 0.0
         }
+        minScoreLabel.text = "\(slider.value)"
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,8 +38,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func minScoreChanged(sender: UISlider) {
-        userDefault.setObject(minScore.value, forKey: minscoreKey)
-        minScoreLabel.text = "See and get update of stories with score > \(minScore.value)"
+        userDefault.setObject(slider.value, forKey: minscoreKey)
+        minScoreLabel.text = "\(slider.value)"
     }
     
     override func viewWillDisappear(animated: Bool) {

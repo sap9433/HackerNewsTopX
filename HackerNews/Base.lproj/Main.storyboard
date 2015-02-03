@@ -143,8 +143,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Filters" id="NsT-q3-Sko"/>
                     <connections>
-                        <outlet property="minScore" destination="pH0-jH-tbj" id="ZX0-pZ-qcF"/>
                         <outlet property="minScoreLabel" destination="Luq-pg-ORp" id="p87-J8-3JN"/>
+                        <outlet property="slider" destination="pH0-jH-tbj" id="hZT-un-qr2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
