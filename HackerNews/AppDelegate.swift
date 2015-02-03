@@ -14,14 +14,13 @@ let minscoreKey = "minScore"
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
     var window: UIWindow?
-    var minScore: Int?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
         
-        var myRootRef = Firebase(url: self.allStoriesLink)
+        var myRootRef = Firebase(url: allStoriesLink)
         myRootRef.observeEventType(.Value, withBlock: {
             snapshot in
             topStoriesIds = (snapshot.value as NSArray) as [Int]
