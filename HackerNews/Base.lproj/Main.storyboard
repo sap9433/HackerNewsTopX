@@ -195,26 +195,5 @@
             </objects>
             <point key="canvasLocation" x="1392" y="490"/>
         </scene>
-        <!--Nav 2 dont-->
-        <scene sceneID="TzE-BJ-DBI">
-            <objects>
-                <navigationController title="Nav 2 dont" automaticallyAdjustsScrollViewInsets="NO" id="RXt-Rv-dID" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WjX-PI-Mb9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="LOh-zg-4eO" kind="relationship" relationship="rootViewController" id="EZ9-0E-L1O"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rCZ-dT-YIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="565" y="517"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="PZ3-C9-GX5"/>
-    </inferredMetricsTieBreakers>
 </document>
