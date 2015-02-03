@@ -169,19 +169,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DQA-0H-rCi">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQA-0H-rCi">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="LOh-zg-4eO" id="cdF-7s-8jx"/>
                                 </connections>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="O8N-Fa-W6N">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="O8N-Fa-W6N">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                                 <color key="color" red="0.16463426788581459" green="1" blue="0.17135881970554245" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DQA-0H-rCi" secondAttribute="trailing" id="Hx1-7m-nfc"/>
+                            <constraint firstItem="DQA-0H-rCi" firstAttribute="top" secondItem="58f-yg-6xf" secondAttribute="top" id="PjD-e1-oPb"/>
+                            <constraint firstItem="DQA-0H-rCi" firstAttribute="bottom" secondItem="w4q-Od-s5C" secondAttribute="top" id="Sb3-XR-pI1"/>
+                            <constraint firstItem="DQA-0H-rCi" firstAttribute="centerX" secondItem="O8N-Fa-W6N" secondAttribute="centerX" id="Zao-Mh-CwB"/>
+                            <constraint firstItem="DQA-0H-rCi" firstAttribute="leading" secondItem="58f-yg-6xf" secondAttribute="leading" id="dlr-bP-t1a"/>
+                            <constraint firstItem="DQA-0H-rCi" firstAttribute="centerY" secondItem="O8N-Fa-W6N" secondAttribute="centerY" id="zb3-Al-lMQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Deaild Story" id="ddH-60-zM8">
                         <barButtonItem key="backBarButtonItem" title="Top Stories" id="RrL-4U-d57"/>
