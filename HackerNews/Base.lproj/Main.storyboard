@@ -87,7 +87,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Top Stories" id="Raj-Uf-Hhw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="cSH-5N-hpS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="cSH-5N-hpS">
+                            <color key="tintColor" red="0.23930969085726733" green="0.40948150402314815" blue="0.83574021464646464" alpha="0.56000000000000005" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" id="F7E-rB-7Q6"/>
                             </connections>
@@ -168,7 +169,7 @@
             </objects>
             <point key="canvasLocation" x="594" y="-218"/>
         </scene>
-        <!--Deaild Story-->
+        <!--Detailed Story-->
         <scene sceneID="p52-vT-R5H">
             <objects>
                 <viewController id="LOh-zg-4eO" customClass="Webview" customModule="HackerNews" sceneMemberID="viewController">
@@ -189,7 +190,7 @@
                             </webView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="O8N-Fa-W6N">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
-                                <color key="color" red="0.16463426788581459" green="1" blue="0.17135881970554245" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="color" red="0.23930969090000001" green="0.409481504" blue="0.83574021460000003" alpha="0.56000000000000005" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -202,8 +203,8 @@
                             <constraint firstItem="DQA-0H-rCi" firstAttribute="centerY" secondItem="O8N-Fa-W6N" secondAttribute="centerY" id="zb3-Al-lMQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Deaild Story" id="ddH-60-zM8">
-                        <barButtonItem key="backBarButtonItem" title="Top Stories" id="RrL-4U-d57"/>
+                    <navigationItem key="navigationItem" title="Detailed Story" id="ddH-60-zM8">
+                        <barButtonItem key="backBarButtonItem" title="Stories" id="RrL-4U-d57"/>
                     </navigationItem>
                     <connections>
                         <outlet property="pageLoading" destination="O8N-Fa-W6N" id="4gp-8m-okW"/>

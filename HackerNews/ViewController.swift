@@ -12,8 +12,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var minScore: UISlider!
     @IBOutlet weak var minScoreLabel: UILabel!
+    var userDefault:NSUserDefaults!
+    var notificatioCenter:NSNotificationCenter!
     
-    let userDefault = NSUserDefaults.standardUserDefaults()
+    required init(coder aDecoder: NSCoder) {
+        self.userDefault = NSUserDefaults.standardUserDefaults()
+        self.notificatioCenter = NSNotificationCenter.defaultCenter()
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +40,9 @@ class ViewController: UIViewController {
         userDefault.setObject(minScore.value, forKey: minscoreKey)
         minScoreLabel.text = "See and get update of stories with score > \(minScore.value)"
     }
-        
+    
     override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().postNotificationName("topStoryChanged", object: nil)
+        notificatioCenter.postNotificationName("topStoryChanged", object: nil)
     }
     
 }
