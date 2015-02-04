@@ -18,7 +18,7 @@ class StoryCell: UITableViewCell {
         didSet{
             var cellData = self.cellDetails as NSDictionary
             self.title.text = cellData["title"] as? String
-            if let details = cellData["title"] as? String{
+            if let details = cellData["text"] as? String{
                 self.details.text = details
             }else{
                 self.details.hidden = true

@@ -274,11 +274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/StoryCell.swift"
-            timestampString = "444490469.600389"
+            timestampString = "444773081.119308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "StoryCell"
             landmarkType = "3">
          </BreakpointContent>
@@ -796,11 +796,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/StoryCell.swift"
-            timestampString = "444745440.643981"
+            timestampString = "444773081.119308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "StoryCell"
             landmarkType = "3">
          </BreakpointContent>
@@ -812,11 +812,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HackerNews/StoryCell.swift"
-            timestampString = "444768354.24875"
+            timestampString = "444773081.119308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "StoryCell"
             landmarkType = "3">
          </BreakpointContent>
