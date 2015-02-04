@@ -10,18 +10,24 @@ import UIKit
 
 
 class TopStoriesController: UITableViewController{
-    let individualStoryUrl = "https://hacker-news.firebaseio.com/v0/item/"
-    let cellIdentifier = "eachStory"
-    let topStoriesIdskey = "topStoriesIdskey"
-    let webViewSegue = "webViewSegue"
+    let individualStoryUrl:String
+    let cellIdentifier:String
+    let topStoriesIdskey:String
+    let webViewSegue:String
     var showStories:[Int: NSDictionary]
-    var rowInFocus:Int = 0
+    var rowInFocus:Int
     let userDefault: NSUserDefaults
     var pushNotification: UILocalNotification
     
     @IBOutlet weak var tableLoading: UIActivityIndicatorView!
     
     required init(coder aDecoder: NSCoder) {
+        self.individualStoryUrl = "https://hacker-news.firebaseio.com/v0/item/"
+        self.cellIdentifier = "eachStory"
+        self.topStoriesIdskey = "topStoriesIdskey"
+        self.webViewSegue = "webViewSegue"
+        self.rowInFocus = 0
+        
         self.userDefault = NSUserDefaults.standardUserDefaults()
         self.showStories = [Int: NSDictionary]()
         self.pushNotification = UILocalNotification()
