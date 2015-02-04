@@ -21,7 +21,11 @@ class StoryCell: UITableViewCell {
             self.details.text = cellData["text"] as? String
             var score = cellData["score"] as Int
             self.score.text = String(score)
-            self.by.text = cellData["by"] as? String
+            var submitionTime = cellData["time"]! as NSTimeInterval
+            var dateParse = NSDate(timeIntervalSince1970: submitionTime)
+            var byAndDate = dateParse.timeAgo + " By "
+            byAndDate += cellData["by"] as String
+            self.by.text = byAndDate
         }
     }
     
