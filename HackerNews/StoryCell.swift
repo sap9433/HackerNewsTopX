@@ -18,7 +18,11 @@ class StoryCell: UITableViewCell {
         didSet{
             var cellData = self.cellDetails as NSDictionary
             self.title.text = cellData["title"] as? String
-            self.details.text = cellData["text"] as? String
+            if let details = cellData["title"] as? String{
+                self.details.text = details
+            }else{
+                self.details.hidden = true
+            }
             var score = cellData["score"] as Int
             self.score.text = String(score)
             var submitionTime = cellData["time"]! as NSTimeInterval
