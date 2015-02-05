@@ -18,6 +18,7 @@ class TopStoriesController: UITableViewController{
     var rowInFocus:Int
     let userDefault: NSUserDefaults
     var pushNotification: UILocalNotification
+    var opQueue:NSOperationQueue
     
     @IBOutlet weak var tableLoading: UIActivityIndicatorView!
     
@@ -31,6 +32,7 @@ class TopStoriesController: UITableViewController{
         self.userDefault = NSUserDefaults.standardUserDefaults()
         self.showStories = [Int: NSDictionary]()
         self.pushNotification = UILocalNotification()
+        self.opQueue = NSOperationQueue()
         super.init(coder: aDecoder)
     }
 
@@ -50,6 +52,7 @@ class TopStoriesController: UITableViewController{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier( cellIdentifier, forIndexPath: indexPath) as StoryCell
         var storyId = Array(showStories.keys)[indexPath.row] as Int
+        cell.opQueue = opQueue
         cell.storyId = storyId
         cell.cellDetails = showStories[storyId]
         return cell

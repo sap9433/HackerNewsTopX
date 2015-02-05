@@ -54,7 +54,7 @@
                                             <color key="textColor" red="0.18859223504717013" green="0.46508888108123925" blue="0.91483191287878785" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="lm4-mD-Ri3">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lm4-mD-Ri3">
                                             <rect key="frame" x="252" y="54" width="96" height="75"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="96" id="ac9-ZD-DkP"/>
@@ -81,6 +81,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="by" destination="5Hx-Nu-y2z" id="Pwa-QZ-uAf"/>
+                                    <outlet property="cellImage" destination="lm4-mD-Ri3" id="s71-Mf-Oow"/>
                                     <outlet property="details" destination="euX-K2-WHO" id="nqT-qy-W0Z"/>
                                     <outlet property="score" destination="DVi-LL-a3F" id="PJT-tQ-Hz4"/>
                                     <outlet property="title" destination="ztw-gN-leD" id="kMD-J9-hEh"/>
@@ -222,7 +223,4 @@
             <point key="canvasLocation" x="1392" y="490"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="default" width="40" height="40"/>
-    </resources>
 </document>
