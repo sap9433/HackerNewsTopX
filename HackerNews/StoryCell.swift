@@ -14,12 +14,8 @@ class StoryCell: UITableViewCell {
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var by: UILabel!
     @IBOutlet weak var cellImage: UIImageView!
-    
-    var opQueue: NSOperationQueue?{
-        didSet{
-            
-        }
-    }
+    var opQueue: NSOperationQueue?
+    var storyId : Int?
     
     var storyUrl: String?{
         didSet{
@@ -33,19 +29,18 @@ class StoryCell: UITableViewCell {
                 var image = UIImage(data: data)
                 NSOperationQueue.mainQueue().addOperationWithBlock(){
                     self.cellImage.image = image
-//                    self.setNeedsLayout()
+                    self.setNeedsLayout()
                 }
             })
         }
     }
-    
     
     var cellDetails: AnyObject?{
         didSet{
             var cellData = self.cellDetails as NSDictionary
             self.title.text = cellData["title"] as? String
             let details = cellData["text"] as? String
-            self.storyUrl = cellData["url"] as? String
+            
             
             if details != nil && details! != ""{
                 self.details.text = details
@@ -53,8 +48,8 @@ class StoryCell: UITableViewCell {
                 self.cellImage.hidden = true
             }else{
                 self.details.hidden = true
-                var img = UIImage(named: "default")
-                self.cellImage.image = img!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
+//                var img = UIImage(named: "default")
+//                self.cellImage.image = img!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
             }
             var score = cellData["score"] as Int
             self.score.text = String(score)
@@ -63,13 +58,9 @@ class StoryCell: UITableViewCell {
             var byAndDate = dateParse.timeAgo + " By "
             byAndDate += cellData["by"] as String
             self.by.text = byAndDate
+            if storyUrl == nil{
+                self.storyUrl = cellData["url"] as? String
+            }
         }
     }
-    
-    var storyId : Int? {
-        didSet{
-            
-        }
-    }
-    
 }
