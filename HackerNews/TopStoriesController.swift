@@ -40,7 +40,9 @@ class TopStoriesController: UITableViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "processTopStory:", name:"topStoryChanged", object: nil)
+        var defaultCenter = NSNotificationCenter.defaultCenter()
+        defaultCenter.addObserver(self, selector: "processTopStory:", name:"topStoryChanged", object: nil)
+        defaultCenter.addObserver(self, selector: "refreshTable:", name:"refreshTable", object: nil)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -140,7 +142,12 @@ class TopStoriesController: UITableViewController{
         UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
     }
     
-    func soretedKeysOnScore() {
+    func refreshTable(notification: NSNotification){
+        self.tableView.reloadData()
+    }
+    
+    
+    private func soretedKeysOnScore() {
         var dictKeys = Array(showStories.keys)
         var sortedKeys: () = sort(&dictKeys) {
             var firstVal:Int?
