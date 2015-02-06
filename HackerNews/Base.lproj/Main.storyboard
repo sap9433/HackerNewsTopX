@@ -49,15 +49,15 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hx-Nu-y2z">
-                                            <rect key="frame" x="561" y="130" width="13" height="12"/>
+                                            <rect key="frame" x="561" y="130" width="12.5" height="12"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.18859223504717013" green="0.46508888108123925" blue="0.91483191287878785" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lm4-mD-Ri3">
-                                            <rect key="frame" x="252" y="54" width="96" height="75"/>
+                                            <rect key="frame" x="270" y="63" width="60" height="60"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="96" id="ac9-ZD-DkP"/>
+                                                <constraint firstAttribute="width" constant="60" id="ac9-ZD-DkP"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -70,11 +70,11 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="5Hx-Nu-y2z" secondAttribute="trailing" constant="18" id="If1-2p-Nhs"/>
                                         <constraint firstItem="DVi-LL-a3F" firstAttribute="top" secondItem="euX-K2-WHO" secondAttribute="bottom" constant="15" id="Jzl-3w-FpF"/>
                                         <constraint firstItem="euX-K2-WHO" firstAttribute="trailing" secondItem="2Rc-D6-nvP" secondAttribute="trailingMargin" id="KJv-mp-rKo"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="lm4-mD-Ri3" secondAttribute="bottom" constant="13" id="WpH-hv-gPl"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="lm4-mD-Ri3" secondAttribute="bottom" constant="18.5" id="WpH-hv-gPl"/>
                                         <constraint firstItem="euX-K2-WHO" firstAttribute="leading" secondItem="ztw-gN-leD" secondAttribute="leading" id="agl-WZ-s33"/>
                                         <constraint firstItem="ztw-gN-leD" firstAttribute="top" secondItem="2Rc-D6-nvP" secondAttribute="top" id="fA5-ep-MGV"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="5Hx-Nu-y2z" secondAttribute="bottom" constant="-0.5" id="fRJ-xD-Qiu"/>
-                                        <constraint firstItem="lm4-mD-Ri3" firstAttribute="top" secondItem="2Rc-D6-nvP" secondAttribute="topMargin" constant="46" id="qIc-vt-OOE"/>
+                                        <constraint firstItem="lm4-mD-Ri3" firstAttribute="top" secondItem="2Rc-D6-nvP" secondAttribute="topMargin" constant="55" id="qIc-vt-OOE"/>
                                         <constraint firstItem="5Hx-Nu-y2z" firstAttribute="top" secondItem="euX-K2-WHO" secondAttribute="bottom" constant="22" id="wOW-Mc-JD5"/>
                                         <constraint firstItem="lm4-mD-Ri3" firstAttribute="centerX" secondItem="euX-K2-WHO" secondAttribute="centerX" id="zQ2-Zq-g3z"/>
                                     </constraints>
@@ -108,7 +108,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NLd-Gn-IPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="-300"/>
+            <point key="canvasLocation" x="1612" y="-300"/>
         </scene>
         <!--Filters-->
         <scene sceneID="tne-QT-ifu">
