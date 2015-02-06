@@ -11,6 +11,7 @@ import UIKit
 var topStoriesIds = [Int]()
 let minscoreKey = "minScore"
 var imageCache = [String:UIImage]()
+var defaultImage = UIImage(named:"default")!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

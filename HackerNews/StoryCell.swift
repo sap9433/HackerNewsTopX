@@ -47,14 +47,14 @@ class StoryCell: UITableViewCell {
                                 self.setNeedsLayout()
                             }
                         }else{
-                            imageCache[faviconUrl] = UIImage(named:"default")!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
+                            imageCache[faviconUrl] = defaultImage
                         }
                     })
                 }
             }else{
                 if(self.details.text == nil || self.details.text == ""){
                     self.cellImage.hidden = false
-                    self.cellImage.image = UIImage(named: "default")!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
+                    self.cellImage.image = defaultImage
                 }else{
                     self.cellImage.hidden = true
                 }
