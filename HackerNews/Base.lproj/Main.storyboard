@@ -122,30 +122,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="pH0-jH-tbj">
+                                <rect key="frame" x="87" y="332" width="435" height="31"/>
+                                <connections>
+                                    <action selector="minScoreChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="zcB-ga-jRA"/>
+                                </connections>
+                            </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Luq-pg-ORp">
-                                <rect key="frame" x="16" y="95" width="576" height="21"/>
+                                <rect key="frame" x="89" y="275" width="576" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="M7Z-zk-rdI"/>
+                                    <constraint firstAttribute="height" constant="21" id="aJu-vs-mVO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="500" translatesAutoresizingMaskIntoConstraints="NO" id="pH0-jH-tbj">
-                                <rect key="frame" x="87" y="124" width="435" height="31"/>
-                                <connections>
-                                    <action selector="minScoreChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="zcB-ga-jRA"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pH0-jH-tbj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="73" id="8ob-pM-pwB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Luq-pg-ORp" secondAttribute="trailing" constant="-8" id="9Fs-wZ-Ccz"/>
-                            <constraint firstItem="pH0-jH-tbj" firstAttribute="top" secondItem="Luq-pg-ORp" secondAttribute="bottom" constant="8" symbolic="YES" id="BTu-Nk-y45"/>
-                            <constraint firstItem="Luq-pg-ORp" firstAttribute="top" secondItem="Ecx-9O-8d6" secondAttribute="bottom" constant="31" id="gIs-MW-LAt"/>
-                            <constraint firstItem="Luq-pg-ORp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jQa-Qe-vkP"/>
-                            <constraint firstItem="pH0-jH-tbj" firstAttribute="centerX" secondItem="Luq-pg-ORp" secondAttribute="centerX" id="wwq-Yj-NS3"/>
+                            <constraint firstItem="Luq-pg-ORp" firstAttribute="top" secondItem="Ecx-9O-8d6" secondAttribute="bottom" constant="211" id="3OS-Ay-IL8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Luq-pg-ORp" secondAttribute="trailing" constant="-81" id="Mwd-1x-mFv"/>
+                            <constraint firstItem="pH0-jH-tbj" firstAttribute="top" secondItem="Luq-pg-ORp" secondAttribute="bottom" constant="36" id="NUw-6H-lui"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pH0-jH-tbj" secondAttribute="trailing" constant="64" id="TSZ-C3-Y0C"/>
+                            <constraint firstItem="Luq-pg-ORp" firstAttribute="leading" secondItem="pH0-jH-tbj" secondAttribute="leading" id="eQS-PG-Yz5"/>
+                            <constraint firstItem="Luq-pg-ORp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="73" id="zr3-jj-yBg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Filters" id="NsT-q3-Sko"/>
@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2175" y="-219"/>
+            <point key="canvasLocation" x="2287" y="-280"/>
         </scene>
         <!--nav1-->
         <scene sceneID="Qd2-HW-EZg">
