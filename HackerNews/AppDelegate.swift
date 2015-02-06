@@ -10,6 +10,7 @@ import UIKit
 
 var topStoriesIds = [Int]()
 let minscoreKey = "minScore"
+var imageCache = [String:UIImage]()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

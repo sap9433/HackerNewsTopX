@@ -16,7 +16,6 @@ class StoryCell: UITableViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     var opQueue: NSOperationQueue?
     var storyId : Int?
-    var imageCache:[String: UIImage]?
     
     var storyUrl: String?{
         didSet{
@@ -25,31 +24,33 @@ class StoryCell: UITableViewCell {
             var faviconUrl : String
             if let host = storyUrlObj!.host{
                 faviconUrl = "http://" + host + "/favicon.ico"
-            }else{
-                return
-            }
-            self.details.hidden = true
-            self.cellImage.image = UIImage(named: "default")!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
-            if let exixtingUmg = imageCache?[faviconUrl] {
-                self.cellImage.image = exixtingUmg.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
-            }else{
-                //self.cellImage.image = nil
-                storyUrlObj = NSURL(string: faviconUrl)
-                var request: NSURLRequest = NSURLRequest(URL: storyUrlObj!)
-                NSURLConnection.sendAsynchronousRequest(request, queue: self.opQueue, completionHandler: {
-                    (response: NSURLResponse!, data: NSData!, error: NSError!) in
-                    var image: UIImage?
-                    if(data != nil){
-                       image = UIImage(data: data)
-                    }
-                    
-                    if(image != nil){
-                        NSOperationQueue.mainQueue().addOperationWithBlock(){
-                            self.imageCache?[faviconUrl] = UIImage(named: "default")//image!
-                            self.setNeedsLayout()
+                
+                self.details.hidden = true
+                if let exixtingImg = imageCache[faviconUrl] {
+                    self.cellImage.image = exixtingImg.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
+                }else{
+                    //self.cellImage.image = nil
+                    storyUrlObj = NSURL(string: faviconUrl)
+                    var request: NSURLRequest = NSURLRequest(URL: storyUrlObj!)
+                    NSURLConnection.sendAsynchronousRequest(request, queue: self.opQueue, completionHandler: {
+                        (response: NSURLResponse!, data: NSData!, error: NSError!) in
+                        var image: UIImage?
+                        if(data != nil){
+                            image = UIImage(data: data)
                         }
-                    }
-                })
+                        
+                        if(image != nil){
+                            NSOperationQueue.mainQueue().addOperationWithBlock(){
+                                imageCache[faviconUrl] = image!
+                                self.setNeedsLayout()
+                            }
+                        }else{
+                            imageCache[faviconUrl] = UIImage(named: "default")
+                        }
+                    })
+                }
+            }else{
+                self.cellImage.image = UIImage(named: "default")
             }
         }
     }
@@ -59,14 +60,14 @@ class StoryCell: UITableViewCell {
             var cellData = self.cellDetails as NSDictionary
             self.title.text = cellData["title"] as? String
             self.details.text = cellData["text"] as? String
-        
-//             This commented out code is for image in story cell
-//            if storyDetails != nil && storyDetails! != ""{
-//                self.details.text! = storyDetails!
-//                self.cellImage.hidden = true
-//            }else{
-//                self.details.hidden = true
-//            }
+            
+            //             This commented out code is for image in story cell
+            //            if storyDetails != nil && storyDetails! != ""{
+            //                self.details.text! = storyDetails!
+            //                self.cellImage.hidden = true
+            //            }else{
+            //                self.details.hidden = true
+            //            }
             var score = cellData["score"] as Int
             self.score.text = String(score)
             var submitionTime = cellData["time"]! as NSTimeInterval
@@ -77,7 +78,7 @@ class StoryCell: UITableViewCell {
             if let visited =  cellData["visited"] as? Bool{
                 self.title.textColor = UIColor.blackColor()
             }else{
-               self.title.textColor = UIColor.blueColor()
+                self.title.textColor = UIColor.blueColor()
             }
             //This commented out code is for image in story cell
             self.storyUrl = cellData["url"] as? String
