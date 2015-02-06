@@ -78,6 +78,8 @@ class StoryCell: UITableViewCell {
             self.by.text = byAndDate
             if let visited =  cellData["visited"] as? Bool{
                 self.title.textColor = UIColor.blackColor()
+            }else{
+               self.title.textColor = UIColor.blueColor()
             }
             //This commented out code is for image in story cell
             //self.storyUrl = cellData["url"] as? String
