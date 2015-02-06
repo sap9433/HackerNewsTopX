@@ -32,7 +32,6 @@ class StoryCell: UITableViewCell {
                         (response: NSURLResponse!, data: NSData!, error: NSError!) in
                         var image: UIImage?
                         if(data != nil){
-                            println(data)
                             image = UIImage(data: data)
                         }
                         
@@ -57,14 +56,6 @@ class StoryCell: UITableViewCell {
             var cellData = self.cellDetails as NSDictionary
             self.title.text = cellData["title"] as? String
             self.details.text = cellData["text"] as? String
-            
-            //             This commented out code is for image in story cell
-            //            if storyDetails != nil && storyDetails! != ""{
-            //                self.details.text! = storyDetails!
-            //                self.cellImage.hidden = true
-            //            }else{
-            //                self.details.hidden = true
-            //            }
             var score = cellData["score"] as Int
             self.score.text = String(score)
             var submitionTime = cellData["time"]! as NSTimeInterval
