@@ -19,6 +19,7 @@ class TopStoriesController: UITableViewController{
     let userDefault: NSUserDefaults
     var pushNotification: UILocalNotification
     var opQueue:NSOperationQueue
+    var sortedKey: [Int]
     
     @IBOutlet weak var tableLoading: UIActivityIndicatorView!
     
@@ -28,6 +29,7 @@ class TopStoriesController: UITableViewController{
         self.topStoriesIdskey = "topStoriesIdskey"
         self.webViewSegue = "webViewSegue"
         self.rowInFocus = 0
+        self.sortedKey = []
         
         self.userDefault = NSUserDefaults.standardUserDefaults()
         self.showStories = [Int: NSDictionary]()
@@ -51,7 +53,7 @@ class TopStoriesController: UITableViewController{
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier( cellIdentifier, forIndexPath: indexPath) as StoryCell
-        var storyId = Array(showStories.keys)[indexPath.row] as Int
+        var storyId = sortedKey[indexPath.row] as Int
         cell.opQueue = opQueue
         cell.storyId = storyId
         cell.cellDetails = showStories[storyId]
@@ -79,7 +81,7 @@ class TopStoriesController: UITableViewController{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == webViewSegue) {
             var webview = segue.destinationViewController as Webview
-            var storyId = Array(showStories.keys)[rowInFocus] as Int
+            var storyId = sortedKey[rowInFocus] as Int
             let focusUrl = (showStories[storyId] as NSDictionary!)["url"] as String
             webview.url = focusUrl
             
@@ -118,6 +120,7 @@ class TopStoriesController: UITableViewController{
                             self.showStories[thisStory] = storyDetails
                             self.tableLoading.stopAnimating()
                             var notifictionString = storyDetails!["title"] as String + "(\(storyScore!))"
+                            self.soretedKeysOnScore()
                             self.sendNotification(notifictionString)
                         }else{
                             self.showStories[thisStory] = nil
@@ -134,6 +137,23 @@ class TopStoriesController: UITableViewController{
         pushNotification.alertBody = notificationText
         pushNotification.fireDate = nil
         UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
+    }
+    
+    func soretedKeysOnScore() {
+        var dictKeys = Array(showStories.keys)
+        var sortedKeys: () = sort(&dictKeys) {
+            var firstVal:Int?
+            var secondVal:Int?
+            if let firstScore = self.showStories[$0]{
+                firstVal = firstScore["score"] as? Int
+            }
+            if let nextScore = self.showStories[$1]{
+                secondVal = nextScore["score"] as? Int
+            }
+        
+            return firstVal > secondVal
+        }
+        sortedKey = dictKeys
     }
 }
 
