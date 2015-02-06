@@ -14,7 +14,7 @@ class TopStoriesController: UITableViewController{
     let cellIdentifier:String
     let topStoriesIdskey:String
     let webViewSegue:String
-    var showStories:[Int: NSDictionary]
+    var showStories:[Int: NSMutableDictionary]
     var rowInFocus:Int
     let userDefault: NSUserDefaults
     var pushNotification: UILocalNotification
@@ -32,7 +32,7 @@ class TopStoriesController: UITableViewController{
         self.sortedKey = []
         
         self.userDefault = NSUserDefaults.standardUserDefaults()
-        self.showStories = [Int: NSDictionary]()
+        self.showStories = [Int: NSMutableDictionary]()
         self.pushNotification = UILocalNotification()
         self.opQueue = NSOperationQueue()
         super.init(coder: aDecoder)
@@ -77,12 +77,13 @@ class TopStoriesController: UITableViewController{
         return [moreRowAction];
     }
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == webViewSegue) {
             var webview = segue.destinationViewController as Webview
             var storyId = sortedKey[rowInFocus] as Int
-            let focusUrl = (showStories[storyId] as NSDictionary!)["url"] as String
+            var storyDetailsDict = showStories[storyId] as NSMutableDictionary!
+            storyDetailsDict["visited"] = true
+            let focusUrl = storyDetailsDict["url"] as String
             webview.url = focusUrl
             
         }
@@ -113,7 +114,7 @@ class TopStoriesController: UITableViewController{
                 fetchEachStory.observeEventType(.Value, withBlock: {
                     snapshot in
                     if snapshot.exists(){
-                        let storyDetails = snapshot.value as NSDictionary?
+                        let storyDetails = snapshot.value as NSMutableDictionary?
                         let storyScore = storyDetails!["score"] as Int?
                         var thisStory = eachStory
                         if storyScore? > minscore{
