@@ -16,22 +16,43 @@ class StoryCell: UITableViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     var opQueue: NSOperationQueue?
     var storyId : Int?
+    var imageCache:[String: UIImage]?
     
     var storyUrl: String?{
         didSet{
+            //This commented out code is for image in story cell. wont execute
             var storyUrlObj = NSURL(string: self.storyUrl!)
-            var faviconUrl = "http://" + storyUrlObj!.host! + "/favicon.ico"
-            storyUrlObj = NSURL(string: faviconUrl)
-            var request: NSURLRequest = NSURLRequest(URL: storyUrlObj!)
+            var faviconUrl : String
+            if let host = storyUrlObj!.host{
+                faviconUrl = "http://" + host + "/favicon.ico"
+            }else{
+                return
+            }
             
-            NSURLConnection.sendAsynchronousRequest(request, queue: self.opQueue, completionHandler: {
-                (response: NSURLResponse!, data: NSData!, error: NSError!) in
-                var image = UIImage(data: data)
-                NSOperationQueue.mainQueue().addOperationWithBlock(){
-                    self.cellImage.image = image
-                    self.setNeedsLayout()
-                }
-            })
+            if let exixtingUmg = imageCache?[faviconUrl] {
+                self.cellImage.image = exixtingUmg.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
+                self.setNeedsLayout()
+            }else{
+                self.cellImage.image = nil
+                storyUrlObj = NSURL(string: faviconUrl)
+                var request: NSURLRequest = NSURLRequest(URL: storyUrlObj!)
+                NSURLConnection.sendAsynchronousRequest(request, queue: self.opQueue, completionHandler: {
+                    (response: NSURLResponse!, data: NSData!, error: NSError!) in
+                    var image: UIImage?
+                    if(data != nil){
+                       image = UIImage(data: data)
+                    }
+                    
+                    if(image != nil){
+                        NSOperationQueue.mainQueue().addOperationWithBlock(){
+                            
+                            //self.cellImage.image = image!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
+                            self.imageCache?[faviconUrl] = image!
+                            self.setNeedsLayout()
+                        }
+                    }
+                })
+            }
         }
     }
     
@@ -39,18 +60,15 @@ class StoryCell: UITableViewCell {
         didSet{
             var cellData = self.cellDetails as NSDictionary
             self.title.text = cellData["title"] as? String
-            let details = cellData["text"] as? String
-            
-            
-            if details != nil && details! != ""{
-                self.details.text = details
-                println("yo" + details!)
-                self.cellImage.hidden = true
-            }else{
-                self.details.hidden = true
-//                var img = UIImage(named: "default")
-//                self.cellImage.image = img!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
-            }
+            self.details.text = cellData["text"] as? String
+        
+//             This commented out code is for image in story cell
+//            if storyDetails != nil && storyDetails! != ""{
+//                self.details.text! = storyDetails!
+//                self.cellImage.hidden = true
+//            }else{
+//                self.details.hidden = true
+//            }
             var score = cellData["score"] as Int
             self.score.text = String(score)
             var submitionTime = cellData["time"]! as NSTimeInterval
@@ -58,9 +76,8 @@ class StoryCell: UITableViewCell {
             var byAndDate = dateParse.timeAgo + " By "
             byAndDate += cellData["by"] as String
             self.by.text = byAndDate
-            if storyUrl == nil{
-                self.storyUrl = cellData["url"] as? String
-            }
+            //This commented out code is for image in story cell
+            //self.storyUrl = cellData["url"] as? String
         }
     }
 }
