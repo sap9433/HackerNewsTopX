@@ -19,29 +19,26 @@ class StoryCell: UITableViewCell {
     
     var storyUrl: String?{
         didSet{
-            //This commented out code is for image in story cell. wont execute
             var storyUrlObj = NSURL(string: self.storyUrl!)
-            var faviconUrl : String
             if let host = storyUrlObj!.host{
-                faviconUrl = "http://" + host + "/favicon.ico"
+                let faviconUrl = "http://" + host + "/favicon.ico"
                 
-                self.details.hidden = true
                 if let exixtingImg = imageCache[faviconUrl] {
-                    self.cellImage.image = exixtingImg.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
+                    self.cellImage.image = exixtingImg
                 }else{
-                    //self.cellImage.image = nil
                     storyUrlObj = NSURL(string: faviconUrl)
                     var request: NSURLRequest = NSURLRequest(URL: storyUrlObj!)
                     NSURLConnection.sendAsynchronousRequest(request, queue: self.opQueue, completionHandler: {
                         (response: NSURLResponse!, data: NSData!, error: NSError!) in
                         var image: UIImage?
                         if(data != nil){
+                            println(data)
                             image = UIImage(data: data)
                         }
                         
                         if(image != nil){
                             NSOperationQueue.mainQueue().addOperationWithBlock(){
-                                imageCache[faviconUrl] = image!
+                                imageCache[faviconUrl] = image!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
                                 self.setNeedsLayout()
                             }
                         }else{
@@ -80,7 +77,6 @@ class StoryCell: UITableViewCell {
             }else{
                 self.title.textColor = UIColor.blueColor()
             }
-            //This commented out code is for image in story cell
             self.storyUrl = cellData["url"] as? String
         }
     }
