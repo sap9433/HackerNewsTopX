@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         }else{
             slider.value = 0.0
         }
-        minScoreLabel.text = "\(Int(slider.value))"
+        minScoreLabel.text = "Story score \(Int(slider.value))"
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     
     @IBAction func minScoreChanged(sender: UISlider) {
         userDefault.setObject(Int(slider.value), forKey: minscoreKey)
-        minScoreLabel.text = "\(Int(slider.value))"
+        minScoreLabel.text = "Story score \(Int(slider.value))"
     }
     
     override func viewWillDisappear(animated: Bool) {
