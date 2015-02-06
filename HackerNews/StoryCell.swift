@@ -28,12 +28,12 @@ class StoryCell: UITableViewCell {
             }else{
                 return
             }
-            
+            self.details.hidden = true
+            self.cellImage.image = UIImage(named: "default")!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
             if let exixtingUmg = imageCache?[faviconUrl] {
                 self.cellImage.image = exixtingUmg.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
-                self.setNeedsLayout()
             }else{
-                self.cellImage.image = nil
+                //self.cellImage.image = nil
                 storyUrlObj = NSURL(string: faviconUrl)
                 var request: NSURLRequest = NSURLRequest(URL: storyUrlObj!)
                 NSURLConnection.sendAsynchronousRequest(request, queue: self.opQueue, completionHandler: {
@@ -45,9 +45,7 @@ class StoryCell: UITableViewCell {
                     
                     if(image != nil){
                         NSOperationQueue.mainQueue().addOperationWithBlock(){
-                            
-                            //self.cellImage.image = image!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
-                            self.imageCache?[faviconUrl] = image!
+                            self.imageCache?[faviconUrl] = UIImage(named: "default")//image!
                             self.setNeedsLayout()
                         }
                     }
@@ -82,7 +80,7 @@ class StoryCell: UITableViewCell {
                self.title.textColor = UIColor.blueColor()
             }
             //This commented out code is for image in story cell
-            //self.storyUrl = cellData["url"] as? String
+            self.storyUrl = cellData["url"] as? String
         }
     }
 }
