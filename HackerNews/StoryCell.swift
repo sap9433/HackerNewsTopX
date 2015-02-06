@@ -24,7 +24,13 @@ class StoryCell: UITableViewCell {
                 let faviconUrl = "http://" + host + "/favicon.ico"
                 
                 if let exixtingImg = imageCache[faviconUrl] {
-                    self.cellImage.image = exixtingImg
+                    if(self.details.text == nil || self.details.text == ""){
+                        self.cellImage.hidden = false
+                        self.cellImage.image = exixtingImg
+                    }else{
+                        self.cellImage.hidden = true
+                    }
+                    
                 }else{
                     storyUrlObj = NSURL(string: faviconUrl)
                     var request: NSURLRequest = NSURLRequest(URL: storyUrlObj!)
@@ -41,12 +47,18 @@ class StoryCell: UITableViewCell {
                                 self.setNeedsLayout()
                             }
                         }else{
-                            imageCache[faviconUrl] = UIImage(named: "default")
+                            imageCache[faviconUrl] = UIImage(named:"default")!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
                         }
                     })
                 }
             }else{
-                self.cellImage.image = UIImage(named: "default")
+                if(self.details.text == nil || self.details.text == ""){
+                    self.cellImage.hidden = false
+                    self.cellImage.image = UIImage(named: "default")!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
+                }else{
+                    self.cellImage.hidden = true
+                }
+                
             }
         }
     }
