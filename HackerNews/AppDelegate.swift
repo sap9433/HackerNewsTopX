@@ -25,11 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
         
-        var myRootRef = Firebase(url: allStoriesLink)
-        myRootRef.observeEventType(.Value, withBlock: {
+        var fireBase = Firebase(url: allStoriesLink)
+        fireBase.observeEventType(.Value, withBlock: {
             snapshot in
-            topStoriesIds = (snapshot.value as NSArray) as [Int]
-            notificationCenter.postNotificationName("topStoryChanged", object: nil)
+            var rawValues = (snapshot.value as NSArray) as [Int]
+            rawValues.sort(>)
+            if(topStoriesIds != rawValues){
+               topStoriesIds = rawValues
+               notificationCenter.postNotificationName("topStoryChanged", object: nil)
+            }
+           
         })
         
         // Notification ...
