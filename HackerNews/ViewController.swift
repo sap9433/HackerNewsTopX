@@ -12,17 +12,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var minScoreLabel: UILabel!
-    var userDefault:NSUserDefaults!
-    
-    required init(coder aDecoder: NSCoder) {
-        self.userDefault = NSUserDefaults.standardUserDefaults()
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if let storeScore = self.userDefault.objectForKey(minscoreKey) as Float?{
+        if let storeScore = userDefault.objectForKey(minscoreKey) as Float?{
             slider.value = storeScore
         }else{
             slider.value = 0.0

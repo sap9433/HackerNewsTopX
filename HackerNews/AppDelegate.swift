@@ -14,6 +14,7 @@ var imageCache = [String:UIImage]()
 var notificationCenter = NSNotificationCenter.defaultCenter()
 let defaultImage = UIImage()
 let visitedColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
+let userDefault = NSUserDefaults.standardUserDefaults()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
