@@ -71,10 +71,13 @@ class StoryCell: UITableViewCell {
                 var byAndDate = dateParse.timeAgo + " By "
                 byAndDate += cellData["by"] as String
                 self.by.text = byAndDate
-                if let visited =  cellData["visited"] as? Bool{
-                    self.title.textColor = visitedColor
-                    self.by.textColor = visitedColor
-                    self.score.textColor = visitedColor
+                if let savedData =  userDefault.objectForKey("HN\(storyId!)") as NSMutableDictionary? {
+                    if (savedData["visited"] as Bool? != nil) {
+                        self.title.textColor = visitedColor
+                    }else{
+                      self.title.textColor = UIColor.blackColor()  
+                    }
+                    
                 }else{
                     self.title.textColor = UIColor.blackColor()
                 }

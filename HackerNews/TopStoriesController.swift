@@ -16,7 +16,6 @@ class TopStoriesController: UITableViewController{
     let webViewSegue:String
     var showStories:[Int: NSMutableDictionary]
     var rowInFocus:Int
-    let userDefault: NSUserDefaults
     var pushNotification: UILocalNotification
     var opQueue:NSOperationQueue
     var sortedKey: [Int]
@@ -31,7 +30,6 @@ class TopStoriesController: UITableViewController{
         self.rowInFocus = 0
         self.sortedKey = []
         
-        self.userDefault = NSUserDefaults.standardUserDefaults()
         self.showStories = [Int: NSMutableDictionary]()
         self.pushNotification = UILocalNotification()
         self.opQueue = NSOperationQueue()
@@ -84,7 +82,10 @@ class TopStoriesController: UITableViewController{
             var webview = segue.destinationViewController as Webview
             var storyId = sortedKey[rowInFocus] as Int
             var storyDetailsDict = showStories[storyId] as NSMutableDictionary!
-            storyDetailsDict["visited"] = true
+            if let storySavedData = userDefault.objectForKey("HN\(storyId)") as NSMutableDictionary?{
+                storySavedData["visited"] = true
+                userDefault.setObject(storySavedData, forKey: "HN\(storyId)")
+            }
             let focusUrl = storyDetailsDict["url"] as String
             webview.url = focusUrl
             
@@ -97,7 +98,7 @@ class TopStoriesController: UITableViewController{
         for eachStory in topStoriesIds{
             
             var minscore:Int
-            if let storedScore = self.userDefault.objectForKey(minscoreKey) as Int?{
+            if let storedScore = userDefault.objectForKey(minscoreKey) as Int?{
                 minscore = storedScore
             }else{
                 minscore = 0
@@ -121,6 +122,7 @@ class TopStoriesController: UITableViewController{
                         var thisStory = eachStory
                         if storyScore? > minscore{
                             self.showStories[thisStory] = storyDetails
+                            userDefault.setObject(["notified": true], forKey: "HN\(thisStory)")
                             self.tableLoading.stopAnimating()
                             var notifictionString = storyDetails!["title"] as String + "(\(storyScore!))"
                             self.soretedKeysOnScore()
