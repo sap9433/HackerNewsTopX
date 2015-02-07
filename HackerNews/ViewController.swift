@@ -13,11 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var minScoreLabel: UILabel!
     var userDefault:NSUserDefaults!
-    var notificatioCenter:NSNotificationCenter!
     
     required init(coder aDecoder: NSCoder) {
         self.userDefault = NSUserDefaults.standardUserDefaults()
-        self.notificatioCenter = NSNotificationCenter.defaultCenter()
         super.init(coder: aDecoder)
     }
     
@@ -43,7 +41,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillDisappear(animated: Bool) {
-        notificatioCenter.postNotificationName("topStoryChanged", object: nil)
+        notificationCenter.postNotificationName("topStoryChanged", object: nil)
     }
     
 }

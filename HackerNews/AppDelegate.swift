@@ -11,7 +11,8 @@ import UIKit
 var topStoriesIds = [Int]()
 let minscoreKey = "minScore"
 var imageCache = [String:UIImage]()
-var defaultImage = UIImage(named:"default")!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
+var notificationCenter = NSNotificationCenter.defaultCenter()
+let defaultImage = UIImage()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         myRootRef.observeEventType(.Value, withBlock: {
             snapshot in
             topStoriesIds = (snapshot.value as NSArray) as [Int]
-            NSNotificationCenter.defaultCenter().postNotificationName("topStoryChanged", object: nil)
+            notificationCenter.postNotificationName("topStoryChanged", object: nil)
         })
         
         // Notification ...

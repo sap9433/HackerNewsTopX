@@ -21,7 +21,7 @@ class StoryCell: UITableViewCell {
         didSet{
             var storyUrlObj = NSURL(string: self.storyUrl!)
             if let host = storyUrlObj!.host{
-                let faviconUrl = "http://" + host + "/favicon.ico"
+                let faviconUrl:String = "http://\(host)/favicon.ico"
                 
                 if let exixtingImg = imageCache[faviconUrl] {
                     if(self.details.text == nil || self.details.text == ""){
@@ -32,6 +32,7 @@ class StoryCell: UITableViewCell {
                     }
                     
                 }else{
+                    self.cellImage.hidden = true
                     storyUrlObj = NSURL(string: faviconUrl)
                     var request: NSURLRequest = NSURLRequest(URL: storyUrlObj!)
                     NSURLConnection.sendAsynchronousRequest(request, queue: self.opQueue, completionHandler: {
@@ -44,7 +45,7 @@ class StoryCell: UITableViewCell {
                         if(image != nil){
                             NSOperationQueue.mainQueue().addOperationWithBlock(){
                                 imageCache[faviconUrl] = image!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
-                                self.setNeedsLayout()
+                                notificationCenter.postNotificationName("refreshTable", object: nil)
                             }
                         }else{
                             imageCache[faviconUrl] = defaultImage
@@ -52,37 +53,33 @@ class StoryCell: UITableViewCell {
                     })
                 }
             }else{
-                if(self.details.text == nil || self.details.text == ""){
-                    self.cellImage.hidden = false
-                    self.cellImage.image = defaultImage
-                }else{
-                    self.cellImage.hidden = true
-                }
                 
+                self.cellImage.hidden = true
             }
         }
     }
     
     var cellDetails: AnyObject?{
         didSet{
-            var cellData = self.cellDetails as NSDictionary
-            self.title.text = cellData["title"] as? String
-            self.details.text = cellData["text"] as? String
-            var score = cellData["score"] as Int
-            self.score.text = String(score)
-            var submitionTime = cellData["time"]! as NSTimeInterval
-            var dateParse = NSDate(timeIntervalSince1970: submitionTime)
-            var byAndDate = dateParse.timeAgo + " By "
-            byAndDate += cellData["by"] as String
-            self.by.text = byAndDate
-            if let visited =  cellData["visited"] as? Bool{
-                self.title.textColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
-                self.by.textColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
-                self.score.textColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
-            }else{
-                self.title.textColor = UIColor.blackColor()
+            if let cellData = self.cellDetails as NSDictionary?{
+                self.title.text = cellData["title"] as? String
+                self.details.text = cellData["text"] as? String
+                var score = cellData["score"] as Int
+                self.score.text = String(score)
+                var submitionTime = cellData["time"]! as NSTimeInterval
+                var dateParse = NSDate(timeIntervalSince1970: submitionTime)
+                var byAndDate = dateParse.timeAgo + " By "
+                byAndDate += cellData["by"] as String
+                self.by.text = byAndDate
+                if let visited =  cellData["visited"] as? Bool{
+                    self.title.textColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
+                    self.by.textColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
+                    self.score.textColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
+                }else{
+                    self.title.textColor = UIColor.blackColor()
+                }
+                self.storyUrl = cellData["url"] as? String
             }
-            self.storyUrl = cellData["url"] as? String
         }
     }
 }

@@ -14,14 +14,6 @@ class Webview: UIViewController,UIWebViewDelegate {
     @IBOutlet weak var webpage: UIWebView!
     var url : String?
     
-    var notificatioCenter:NSNotificationCenter!
-    
-    required init(coder aDecoder: NSCoder) {
-        self.notificatioCenter = NSNotificationCenter.defaultCenter()
-        super.init(coder: aDecoder)
-    }
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,7 +33,7 @@ class Webview: UIViewController,UIWebViewDelegate {
     }
     
     override func viewWillDisappear(animated: Bool) {
-        notificatioCenter.postNotificationName("refreshTable", object: nil)
+        notificationCenter.postNotificationName("refreshTable", object: nil)
     }
 
 
