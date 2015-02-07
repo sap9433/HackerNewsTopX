@@ -45,7 +45,7 @@ class StoryCell: UITableViewCell {
                         if(image != nil){
                             NSOperationQueue.mainQueue().addOperationWithBlock(){
                                 imageCache[faviconUrl] = image!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
-                                notificationCenter.postNotificationName("refreshTable", object: nil)
+                               // notificationCenter.postNotificationName("refreshTable", object: nil)
                             }
                         }else{
                             imageCache[faviconUrl] = defaultImage

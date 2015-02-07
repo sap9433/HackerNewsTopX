@@ -112,7 +112,6 @@ class TopStoriesController: UITableViewController{
                     continue
                 }else{
                     self.showStories[eachStory] = nil
-                    self.tableView.reloadData()
                 }
             }else{
                 var fetchEachStory = Firebase(url:"\(self.individualStoryUrl)\(eachStory)")
@@ -135,12 +134,13 @@ class TopStoriesController: UITableViewController{
                         }else{
                             self.showStories[thisStory] = nil
                         }
-                        self.tableView.reloadData()
+                        notificationCenter.postNotificationName("refreshTable", object: nil)
                     }
                     
                 })
             }
         }
+        notificationCenter.postNotificationName("refreshTable", object: nil)
     }
     
     private func sendNotification(notificationText: String, thisStoryId: Int){
