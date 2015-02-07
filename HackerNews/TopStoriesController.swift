@@ -14,6 +14,7 @@ class TopStoriesController: UITableViewController{
     let cellIdentifier:String
     let topStoriesIdskey:String
     let webViewSegue:String
+    let interActedWithApp:String
     var showStories:[Int: NSMutableDictionary]
     var rowInFocus:Int
     var pushNotification: UILocalNotification
@@ -27,6 +28,7 @@ class TopStoriesController: UITableViewController{
         self.cellIdentifier = "eachStory"
         self.topStoriesIdskey = "topStoriesIdskey"
         self.webViewSegue = "webViewSegue"
+        self.interActedWithApp = "interActedWithApp"
         self.rowInFocus = 0
         self.sortedKey = []
         
@@ -35,7 +37,7 @@ class TopStoriesController: UITableViewController{
         self.opQueue = NSOperationQueue()
         super.init(coder: aDecoder)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var defaultCenter = NSNotificationCenter.defaultCenter()
@@ -70,7 +72,7 @@ class TopStoriesController: UITableViewController{
         var moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Original Story", handler:{action, indexpath in
             self.rowInFocus = indexPath.row
             self.performSegueWithIdentifier(self.webViewSegue, sender: self)
-           
+            
         });
         moreRowAction.backgroundColor = visitedColor
         
@@ -88,13 +90,14 @@ class TopStoriesController: UITableViewController{
             }
             let focusUrl = storyDetailsDict["url"] as String
             webview.url = focusUrl
-            
+            //mark user has made an interaction with app
+            userDefault.setObject(true, forKey: interActedWithApp)
         }
     }
     
     func processTopStory(notification: NSNotification){
         // Read data and react to changes
-      
+        
         for eachStory in topStoriesIds{
             
             var minscore:Int
@@ -122,11 +125,13 @@ class TopStoriesController: UITableViewController{
                         var thisStory = eachStory
                         if storyScore? > minscore{
                             self.showStories[thisStory] = storyDetails
-                            userDefault.setObject(["notified": true], forKey: "HN\(thisStory)")
+                            
                             self.tableLoading.stopAnimating()
                             var notifictionString = storyDetails!["title"] as String + "(\(storyScore!))"
                             self.soretedKeysOnScore()
-                            self.sendNotification(notifictionString)
+                            self.sendNotification(notifictionString, thisStoryId: thisStory)
+                            //Save that a notification been sent
+                            userDefault.setObject(["notified": true], forKey: "HN\(thisStory)")
                         }else{
                             self.showStories[thisStory] = nil
                         }
@@ -138,10 +143,17 @@ class TopStoriesController: UITableViewController{
         }
     }
     
-    private func sendNotification(notificationText: String){
-        pushNotification.alertBody = notificationText
-        pushNotification.fireDate = nil
-        UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
+    private func sendNotification(notificationText: String, thisStoryId: Int){
+        //only start sending notification if user have interacted with the app
+        if let savedData =  userDefault.objectForKey(interActedWithApp) as Bool? {
+            if  let savedData =  userDefault.objectForKey("HN\(thisStoryId)") as NSMutableDictionary?{
+                if(savedData["notified"] as Bool? == nil){
+                    pushNotification.alertBody = notificationText
+                    pushNotification.fireDate = nil
+                    UIApplication.sharedApplication().scheduleLocalNotification(pushNotification)
+                }
+            }
+        }
     }
     
     func refreshTable(notification: NSNotification){
@@ -160,7 +172,7 @@ class TopStoriesController: UITableViewController{
             if let nextScore = self.showStories[$1]{
                 secondVal = nextScore["score"] as? Int
             }
-        
+            
             return firstVal > secondVal
         }
         sortedKey = dictKeys
