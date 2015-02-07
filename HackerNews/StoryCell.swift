@@ -72,9 +72,9 @@ class StoryCell: UITableViewCell {
                 byAndDate += cellData["by"] as String
                 self.by.text = byAndDate
                 if let visited =  cellData["visited"] as? Bool{
-                    self.title.textColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
-                    self.by.textColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
-                    self.score.textColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
+                    self.title.textColor = visitedColor
+                    self.by.textColor = visitedColor
+                    self.score.textColor = visitedColor
                 }else{
                     self.title.textColor = UIColor.blackColor()
                 }

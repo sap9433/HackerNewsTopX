@@ -13,6 +13,7 @@ let minscoreKey = "minScore"
 var imageCache = [String:UIImage]()
 var notificationCenter = NSNotificationCenter.defaultCenter()
 let defaultImage = UIImage()
+let visitedColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
