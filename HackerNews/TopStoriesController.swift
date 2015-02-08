@@ -99,21 +99,17 @@ class TopStoriesController: UITableViewController{
         // Read data and react to changes
         
         for eachStory in topStoriesIds{
-            
-            var minscore:Int
-            if let storedScore = userDefault.objectForKey(minscoreKey) as Int?{
-                minscore = storedScore
-            }else{
-                minscore = 0
-            }
-            
+            //If the story details already exixts in the master record (i.e. showStories)
             if let storyExists = self.showStories[eachStory]{
-                if(storyExists["score"] as Int > minscore){
+                //story score is more than the filter score. do nothing ...
+                if(storyExists["score"] as Int? > userDefault.objectForKey(minscoreKey) as Int?){
                     continue
                 }else{
+                    //story score is less than the filter score. remove the story from master record ...
                     self.showStories[eachStory] = nil
                 }
             }else{
+                //story details doesn't exixt in master record ... it's time to fetch..
                 var fetchEachStory = Firebase(url:"\(self.individualStoryUrl)\(eachStory)")
                 // Read data and react to changes
                 fetchEachStory.observeEventType(.Value, withBlock: {
@@ -121,8 +117,9 @@ class TopStoriesController: UITableViewController{
                     if snapshot.exists(){
                         let storyDetails = snapshot.value as NSMutableDictionary?
                         let storyScore = storyDetails!["score"] as Int?
-                        var thisStory = eachStory
-                        if storyScore? > minscore{
+                        // closure outside values getting reset .
+                        var thisStory = storyDetails!["id"] as Int
+                        if storyScore? > userDefault.objectForKey(minscoreKey) as Int?{
                             self.showStories[thisStory] = storyDetails
                             
                             self.tableLoading.stopAnimating()
@@ -131,8 +128,6 @@ class TopStoriesController: UITableViewController{
                             self.sendNotification(notifictionString, thisStoryId: thisStory)
                             //Save that a notification been sent
                             userDefault.setObject(["notified": true], forKey: "HN\(thisStory)")
-                        }else{
-                            self.showStories[thisStory] = nil
                         }
                         notificationCenter.postNotificationName("refreshTable", object: nil)
                     }
