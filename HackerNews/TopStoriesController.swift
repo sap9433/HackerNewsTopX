@@ -120,16 +120,24 @@ class TopStoriesController: UITableViewController{
                         // closure outside values getting reset .
                         var thisStory = storyDetails!["id"] as Int
                         if storyScore? > userDefault.objectForKey(minscoreKey) as Int?{
+                            //this is value bind , Will get called repetatively if some of he story details changes
+                            if let existsInMasterRecord = self.showStories[thisStory]{
+                                // this data alredy exixts in master record and score hasn't changed , no point reprocessing.
+                                if(existsInMasterRecord["score"] as Int? == storyDetails!["score"] as Int?){
+                                   return
+                                }
+                            }
                             self.showStories[thisStory] = storyDetails
-                            
                             self.tableLoading.stopAnimating()
                             var notifictionString = storyDetails!["title"] as String + "(\(storyScore!))"
                             self.soretedKeysOnScore()
                             self.sendNotification(notifictionString, thisStoryId: thisStory)
                             //Save that a notification been sent
                             userDefault.setObject(["notified": true], forKey: "HN\(thisStory)")
+                            //new fetched value added to table so refresh the data
+                            notificationCenter.postNotificationName("refreshTable", object: nil)
                         }
-                        notificationCenter.postNotificationName("refreshTable", object: nil)
+                        
                     }
                     
                 })
