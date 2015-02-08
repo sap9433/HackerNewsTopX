@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             snapshot in
             var rawValues = (snapshot.value as NSArray) as [Int]
             rawValues.sort(>)
+            //read firebase.com/docs/ios/guide/retrieving-data.html. Value bind gets called repetatively avoid same data processing .
             if(topStoriesIds != rawValues){
                topStoriesIds = rawValues
                notificationCenter.postNotificationName("topStoryChanged", object: nil)
