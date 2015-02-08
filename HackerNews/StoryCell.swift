@@ -42,6 +42,14 @@ class StoryCell: UITableViewCell {
                     NSURLConnection.sendAsynchronousRequest(request, queue: self.opQueue, completionHandler: {
                         (response: NSURLResponse!, data: NSData!, error: NSError!) in
                         var image: UIImage?
+                        
+                        //It's an async block .. We received the response,But what if by now we already got response from some other async block for
+                        //the same url (yes it's happening) .. so check once if the data already exixts and yes discard this response..
+                        if( imageCache[faviconUrl] != nil){
+                            //By the time this async block finished we already got response from other block
+                            return
+                        }
+                        
                         if(data != nil){
                             image = UIImage(data: data)
                         }
