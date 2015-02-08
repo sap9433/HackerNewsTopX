@@ -84,9 +84,10 @@ class TopStoriesController: UITableViewController{
             var webview = segue.destinationViewController as Webview
             var storyId = sortedKey[rowInFocus] as Int
             var storyDetailsDict = showStories[storyId] as NSMutableDictionary!
-            if let storySavedData = userDefault.objectForKey("HN\(storyId)") as NSMutableDictionary?{
-                storySavedData["visited"] = true
-                userDefault.setObject(storySavedData, forKey: "HN\(storyId)")
+            if let storySavedData = userDefault.objectForKey("HN\(storyId)") as NSDictionary?{
+                var immutableData = storySavedData.mutableCopy() as NSMutableDictionary
+                immutableData["visited"] = true
+                userDefault.setObject(immutableData, forKey: "HN\(storyId)")
             }
             let focusUrl = storyDetailsDict["url"] as String
             webview.url = focusUrl

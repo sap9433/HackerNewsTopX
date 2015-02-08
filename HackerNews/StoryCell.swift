@@ -58,7 +58,7 @@ class StoryCell: UITableViewCell {
                             //Yahooo... Image exixts , store it in master Cache and ask the table to refresh so that it's visible...
                             NSOperationQueue.mainQueue().addOperationWithBlock(){
                                 imageCache[faviconUrl] = image!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
-                                notificationCenter.postNotificationName("refreshTable", object: nil)
+                                //notificationCenter.postNotificationName("refreshTable", object: nil)
                             }
                         }else{
                             //We tried fetching image , got nil . Now next time it will make a network connection again ,but will probably get nil 
