@@ -56,12 +56,13 @@ class StoryCell: UITableViewCell {
                         // Even if data is not nill still image can be nil because of corrupt data .. so checking again..
                         if(image != nil){
                             //Yahooo... Image exixts , store it in master Cache and ask the table to refresh so that it's visible...
+                            imageCache[faviconUrl] = image!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
+                            
                             NSOperationQueue.mainQueue().addOperationWithBlock(){
-                                imageCache[faviconUrl] = image!.cropToCircleWithBorderColor(UIColor.whiteColor(), lineWidth: 0.1)
-                                //notificationCenter.postNotificationName("refreshTable", object: nil)
+                                notificationCenter.postNotificationName("refreshTable", object: nil)
                             }
                         }else{
-                            //We tried fetching image , got nil . Now next time it will make a network connection again ,but will probably get nil 
+                            //We tried fetching image , got nil . Now next time it will make a network connection again ,but will probably get nil
                             //cause no favicon exixts at the default location .. so just assign a blank image to this url.
                             imageCache[faviconUrl] = defaultImage
                         }

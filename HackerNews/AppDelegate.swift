@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                topStoriesIds = rawValues
                notificationCenter.postNotificationName("topStoryChanged", object: nil)
             }
-           
         })
         
         // Notification ...
