@@ -139,7 +139,8 @@ class TopStoriesController: UITableViewController{
                                 //new fetched value added to table so refresh the data
                                 dispatch_async(dispatch_get_main_queue(), {
                                     notificationCenter.postNotificationName("refreshTable", object: nil)
-                                })                            }
+                                })
+                            }
                         }
                     })
                 }
