@@ -16,7 +16,6 @@
 		6A9DDD141A75362200BAD199 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A9DDD131A75362200BAD199 /* Images.xcassets */; };
 		6A9DDD171A75362200BAD199 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A9DDD151A75362200BAD199 /* LaunchScreen.xib */; };
 		6A9DDD231A75362200BAD199 /* HackerNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9DDD221A75362200BAD199 /* HackerNewsTests.swift */; };
-		6A9DDD2E1A75363F00BAD199 /* temp.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A9DDD2D1A75363F00BAD199 /* temp.m */; };
 		6A9DDD301A75373200BAD199 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9DDD2F1A75373200BAD199 /* Firebase.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		6A9DDD321A7538DF00BAD199 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9DDD311A7538DF00BAD199 /* libc++.dylib */; };
 		6A9DDD341A75391200BAD199 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A9DDD331A75391200BAD199 /* CFNetwork.framework */; };
@@ -52,7 +51,6 @@
 		6A9DDD211A75362200BAD199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A9DDD221A75362200BAD199 /* HackerNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsTests.swift; sourceTree = "<group>"; };
 		6A9DDD2C1A75363E00BAD199 /* HackerNews-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HackerNews-Bridging-Header.h"; sourceTree = "<group>"; };
-		6A9DDD2D1A75363F00BAD199 /* temp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = temp.m; sourceTree = "<group>"; };
 		6A9DDD2F1A75373200BAD199 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../Downloads/Softwares/Firebase.framework; sourceTree = "<group>"; };
 		6A9DDD311A7538DF00BAD199 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		6A9DDD331A75391200BAD199 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -86,7 +84,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A9DDCFE1A75362100BAD199 = {
+		6A1C9F1B1A8BE3DF00F1BA54 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				6A0A9BB01A829E6900B142B1 /* NSDateTimeAgo.bundle */,
@@ -95,7 +93,14 @@
 				6A9DDD331A75391200BAD199 /* CFNetwork.framework */,
 				6A9DDD311A7538DF00BAD199 /* libc++.dylib */,
 				6A9DDD2F1A75373200BAD199 /* Firebase.framework */,
-				6A9DDD2D1A75363F00BAD199 /* temp.m */,
+			);
+			name = frameworks;
+			sourceTree = "<group>";
+		};
+		6A9DDCFE1A75362100BAD199 = {
+			isa = PBXGroup;
+			children = (
+				6A1C9F1B1A8BE3DF00F1BA54 /* frameworks */,
 				6A9DDD091A75362200BAD199 /* HackerNews */,
 				6A9DDD1F1A75362200BAD199 /* HackerNewsTests */,
 				6A9DDD081A75362200BAD199 /* Products */,
@@ -257,7 +262,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A9DDD2E1A75363F00BAD199 /* temp.m in Sources */,
 				6A9DDD3A1A7571D800BAD199 /* TopStoriesController.swift in Sources */,
 				6A9DDD0F1A75362200BAD199 /* ViewController.swift in Sources */,
 				6A9DDD401A7A8A6100BAD199 /* Webview.swift in Sources */,
