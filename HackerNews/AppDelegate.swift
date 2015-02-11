@@ -15,6 +15,8 @@ var notificationCenter = NSNotificationCenter.defaultCenter()
 let defaultImage = UIImage()
 let visitedColor = UIColor.grayColor().colorWithAlphaComponent(0.7)
 let userDefault = NSUserDefaults.standardUserDefaults()
+let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,18 +26,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         let allStoriesLink = "https://hacker-news.firebaseio.com/v0/topstories"
-        
         var fireBase = Firebase(url: allStoriesLink)
-        fireBase.observeEventType(.Value, withBlock: {
-            snapshot in
-            var rawValues = (snapshot.value as NSArray) as [Int]
-            rawValues.sort(>)
-            //read firebase.com/docs/ios/guide/retrieving-data.html. Value bind gets called repetatively avoid same data processing .
-            if(topStoriesIds != rawValues){
-               topStoriesIds = rawValues
-               notificationCenter.postNotificationName("topStoryChanged", object: nil)
-            }
+        
+        dispatch_async(backgroundQueue, {
+            fireBase.observeEventType(.Value, withBlock: {
+                snapshot in
+                var rawValues = (snapshot.value as NSArray) as [Int]
+                rawValues.sort(>)
+                //read firebase.com/docs/ios/guide/retrieving-data.html. Value bind gets called repetatively avoid same data processing .
+                if(topStoriesIds != rawValues){
+                    topStoriesIds = rawValues
+                    notificationCenter.postNotificationName("topStoryChanged", object: nil)
+                }
+            })
+            return
         })
+        
+        
         
         // Notification ...
         let notificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge

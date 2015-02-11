@@ -99,52 +99,56 @@ class TopStoriesController: UITableViewController{
     func processTopStory(notification: NSNotification){
         // Read data and react to changes
         
-        for eachStory in topStoriesIds{
-            //If the story details already exixts in the master record (i.e. showStories)
-            if let storyExists = self.showStories[eachStory]{
-                //story score is more than the filter score. do nothing ...
-                if(storyExists["score"] as Int? > userDefault.objectForKey(minscoreKey) as Int?){
-                    continue
-                }else{
-                    //story score is less than the filter score. remove the story from master record ...
-                    self.showStories[eachStory] = nil
-                }
-            }else{
-                //story details doesn't exixt in master record ... it's time to fetch..
-                var fetchEachStory = Firebase(url:"\(self.individualStoryUrl)\(eachStory)")
-                // Read data and react to changes
-                fetchEachStory.observeEventType(.Value, withBlock: {
-                    snapshot in
-                    if snapshot.exists(){
-                        let storyDetails = snapshot.value as NSMutableDictionary?
-                        let storyScore = storyDetails!["score"] as Int?
-                        // closure outside values getting reset .
-                        var thisStory = storyDetails!["id"] as Int
-                        if storyScore? > userDefault.objectForKey(minscoreKey) as Int?{
-                            //this is value bind , Will get called repetatively if some of he story details changes
-                            if let existsInMasterRecord = self.showStories[thisStory]{
-                                // this data alredy exixts in master record and score hasn't changed , no point reprocessing.
-                                if(existsInMasterRecord["score"] as Int? == storyDetails!["score"] as Int?){
-                                   return
-                                }
-                            }
-                            self.showStories[thisStory] = storyDetails
-                            self.tableLoading.stopAnimating()
-                            var notifictionString = storyDetails!["title"] as String + "(\(storyScore!))"
-                            self.soretedKeysOnScore()
-                            self.sendNotification(notifictionString, thisStoryId: thisStory)
-                            //Save that a notification been sent
-                            userDefault.setObject(["notified": true], forKey: "HN\(thisStory)")
-                            //new fetched value added to table so refresh the data
-                            notificationCenter.postNotificationName("refreshTable", object: nil)
-                        }
-                        
+        dispatch_async(backgroundQueue, {
+            for eachStory in topStoriesIds{
+                //If the story details already exixts in the master record (i.e. showStories)
+                if let storyExists = self.showStories[eachStory]{
+                    //story score is more than the filter score. do nothing ...
+                    if(storyExists["score"] as Int? > userDefault.objectForKey(minscoreKey) as Int?){
+                        continue
+                    }else{
+                        //story score is less than the filter score. remove the story from master record ...
+                        self.showStories[eachStory] = nil
                     }
-                    
-                })
+                }else{
+                    //story details doesn't exixt in master record ... it's time to fetch..
+                    var fetchEachStory = Firebase(url:"\(self.individualStoryUrl)\(eachStory)")
+                    // Read data and react to changes
+                    fetchEachStory.observeEventType(.Value, withBlock: {
+                        snapshot in
+                        if snapshot.exists(){
+                            let storyDetails = snapshot.value as NSMutableDictionary?
+                            let storyScore = storyDetails!["score"] as Int?
+                            // closure outside values getting reset .
+                            var thisStory = storyDetails!["id"] as Int
+                            if storyScore? > userDefault.objectForKey(minscoreKey) as Int?{
+                                //this is value bind , Will get called repetatively if some of he story details changes
+                                if let existsInMasterRecord = self.showStories[thisStory]{
+                                    // this data alredy exixts in master record and score hasn't changed , no point reprocessing.
+                                    if(existsInMasterRecord["score"] as Int? == storyDetails!["score"] as Int?){
+                                        return
+                                    }
+                                }
+                                self.showStories[thisStory] = storyDetails
+                                self.tableLoading.stopAnimating()
+                                var notifictionString = storyDetails!["title"] as String + "(\(storyScore!))"
+                                self.soretedKeysOnScore()
+                                self.sendNotification(notifictionString, thisStoryId: thisStory)
+                                //Save that a notification been sent
+                                userDefault.setObject(["notified": true], forKey: "HN\(thisStory)")
+                                //new fetched value added to table so refresh the data
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    notificationCenter.postNotificationName("refreshTable", object: nil)
+                                })                            }
+                        }
+                    })
+                }
             }
-        }
-        notificationCenter.postNotificationName("refreshTable", object: nil)
+            dispatch_async(dispatch_get_main_queue(), {
+                notificationCenter.postNotificationName("refreshTable", object: nil)
+            })
+        })
+        
     }
     
     private func sendNotification(notificationText: String, thisStoryId: Int){
