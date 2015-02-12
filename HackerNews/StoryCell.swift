@@ -21,7 +21,7 @@ class StoryCell: UITableViewCell {
         didSet{
             var storyUrlObj = NSURL(string: self.storyUrl!)
             
-            if let host = storyUrlObj!.host{
+            if let host = storyUrlObj?.host?{
                 //Story url is proper url and we can retrieve host from it.
                 let faviconUrl:String = "http://\(host)/favicon.ico"
                 

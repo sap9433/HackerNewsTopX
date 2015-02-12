@@ -97,6 +97,43 @@
 			name = frameworks;
 			sourceTree = "<group>";
 		};
+		6A1C9F1F1A8C9B0900F1BA54 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				6A0A9BAE1A82361200B142B1 /* NSDate+Extension.swift */,
+				6A0A9BB21A837DDF00B142B1 /* UIImage+Cropping.swift */,
+			);
+			name = extension;
+			sourceTree = "<group>";
+		};
+		6A1C9F201A8C9B1A00F1BA54 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6A9DDD0E1A75362200BAD199 /* ViewController.swift */,
+				6A9DDD391A7571D800BAD199 /* TopStoriesController.swift */,
+				6A9DDD3F1A7A8A6100BAD199 /* Webview.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		6A1C9F211A8C9B4700F1BA54 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				6A9DDD3D1A76773000BAD199 /* StoryCell.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		6A1C9F221A8C9B5D00F1BA54 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				6A9DDD101A75362200BAD199 /* Main.storyboard */,
+				6A9DDD131A75362200BAD199 /* Images.xcassets */,
+				6A9DDD151A75362200BAD199 /* LaunchScreen.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		6A9DDCFE1A75362100BAD199 = {
 			isa = PBXGroup;
 			children = (
@@ -120,17 +157,12 @@
 		6A9DDD091A75362200BAD199 /* HackerNews */ = {
 			isa = PBXGroup;
 			children = (
-				6A0A9BAE1A82361200B142B1 /* NSDate+Extension.swift */,
-				6A9DDD3D1A76773000BAD199 /* StoryCell.swift */,
+				6A1C9F1F1A8C9B0900F1BA54 /* extension */,
+				6A1C9F211A8C9B4700F1BA54 /* model */,
 				6A9DDD0C1A75362200BAD199 /* AppDelegate.swift */,
-				6A9DDD0E1A75362200BAD199 /* ViewController.swift */,
-				6A9DDD101A75362200BAD199 /* Main.storyboard */,
-				6A9DDD391A7571D800BAD199 /* TopStoriesController.swift */,
-				6A9DDD3F1A7A8A6100BAD199 /* Webview.swift */,
-				6A9DDD131A75362200BAD199 /* Images.xcassets */,
-				6A9DDD151A75362200BAD199 /* LaunchScreen.xib */,
+				6A1C9F201A8C9B1A00F1BA54 /* controllers */,
+				6A1C9F221A8C9B5D00F1BA54 /* view */,
 				6A9DDD0A1A75362200BAD199 /* Supporting Files */,
-				6A0A9BB21A837DDF00B142B1 /* UIImage+Cropping.swift */,
 			);
 			path = HackerNews;
 			sourceTree = "<group>";
