@@ -98,7 +98,7 @@ class StoryCell: UITableViewCell {
                 }else{
                     self.title.textColor = UIColor.blackColor()
                 }
-                self.storyUrl = cellData["url"] as? String
+                //self.storyUrl = cellData["url"] as? String
             }
         }
     }

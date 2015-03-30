@@ -90,7 +90,10 @@ class TopStoriesController: UITableViewController{
                 userDefault.setObject(immutableData, forKey: "HN\(storyId)")
             }
             let focusUrl = storyDetailsDict["url"] as String
-            webview.url = focusUrl
+            //webview.url = focusUrl;
+            var newUrl = NSURL(string: focusUrl)
+            UIApplication.sharedApplication().openURL(newUrl!)
+            
             //mark user has made an interaction with app
             userDefault.setObject(true, forKey: interActedWithApp)
         }
